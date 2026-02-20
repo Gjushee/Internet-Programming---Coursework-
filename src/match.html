@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Match Ratings | Red Devils Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+X`
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/match.css">
+</head>
+
+<body>
+
+<!-- ✅ Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/logo1.png"
+                 alt="Red Devils Hub Logo"
+                 class="header-logo me-3">
+            <div>
+                <strong>Red Devils Hub</strong><br>
+                <small class="text-muted">Manchester United Blog</small>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="#">Match Center</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="transfers.html">Transfers</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="analytics.html">Analytics</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="match-hero">
+
+<!-- ===== PAGE TITLE ===== -->
+<section class="container my-5 text-center">
+    <h2 class="fw-bold">Player Ratings for the Recent Game</h2>
+</section>
+
+    <!-- ================= PLAYERS ================= -->
+    <section class="container mb-5">
+
+        <!-- GOALKEEPER -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center gk-card">
+                    <img src="assets//lamens.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h5>Senne Lemmens  (GK)</h5>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn">
+                        <i class="bi bi-star"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEFENCE (4 Players) -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/dalot.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Diogo Dalot (RB)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/maguire.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Harry Maguire (CB)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/martinez.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Lisandro Martinez (CB)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/shaw.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Luke Shaw (LB)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDFIELD (3 Players Centered) -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/casemiro.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Casemiro (CDM)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/bruno.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Bruno Fernandes (CM)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/maino.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Kobbie Mainoo (CM)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ATTACK (3 Players Centered) -->
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/dorgu.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Patrick Dorgu (RW)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/bryan.jpg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Bryan Mbeumo (ST)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center player-card">
+                    <img src="assets/cuhna2.jpeg" class="img-fluid rounded mb-3 player-img">
+                    <h6>Matheus Cuhna  (LW)</h6>
+                    <div class="rating-buttons mb-3"></div>
+                    <button class="btn btn-light motm-btn"><i class="bi bi-star"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- SUBMIT + RESET BUTTONS -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4 text-center">
+
+            <button class="btn submit-ratings-btn w-100 mb-3" id="submit-ratings">
+                Submit Ratings
+            </button>
+
+            <button class="btn reset-ratings-btn w-100" id="reset-ratings">
+                Reset Ratings
+            </button>
+
+        </div>
+    </div>
+
+    <!-- RATINGS RESULT SECTION -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+
+            <div class="card shadow p-4 bg-dark text-white text-center">
+
+                <h4 class="mb-4">Match Rating Statistics</h4>
+
+                <canvas id="ratingsChart"></canvas>
+
+                <div class="mt-4">
+                    <h5>Average Rating: <span id="average-rating">0</span></h5>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer py-5">
+    <div class="container">
+        <div class="row">
+
+            <!-- LEFT COLUMN -->
+            <div class="col-md-4 mb-4 text-start">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="assets/logo1.png"
+                         alt="Red Devils Hub Logo"
+                         class="footer-logo me-3">
+                    <h5 class="text-white fw-bold mb-0">Red Devils Hub</h5>
+                </div>
+
+                <p class="text-white mb-2">
+                    Your ultimate destination for Manchester United match ratings,
+                    transfer news, and predictions.
+                </p>
+            </div>
+
+            <!-- MIDDLE COLUMN (CENTERED) -->
+            <div class="col-md-4 mb-4 text-center">
+                <h5 class="text-white fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="match.html" class="footer-link">Match Center</a></li>
+                    <li><a href="transfers.html" class="footer-link">Transfer Meter</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- RIGHT COLUMN (RIGHT ALIGNED ON DESKTOP) -->
+            <div class="col-md-4 mb-4 text-md-end text-center">
+                <h5 class="text-white fw-bold mb-3">Connect With Us</h5>
+
+                <p class="text-white  mb-3">
+                    <i class="bi bi-envelope me-2"></i>
+                    info@reddevilshub.com
+                </p>
+
+                <div class="d-flex gap-3 mt-3 justify-content-md-end justify-content-center">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="border-secondary mt-4">
+
+    <div class="text-center text-muted small">
+        © 2026 Red Devils Hub. All rights reserved.
+    </div>
+
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/match.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

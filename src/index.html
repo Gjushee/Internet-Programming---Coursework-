@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Red Devils Hub</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <i class="bi bi-star"></i>
+
+    <script src="js/index.js"></script>
+
+</head>
+<body>
+
+<!-- ✅ Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/logo1.png"
+                          alt="Red Devils Hub Logo"
+                          class="header-logo me-3">
+            <div>
+                <strong>Red Devils Hub</strong><br>
+                <small class="text-muted">Manchester United Blog</small>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="match.html">Match Center</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="transfers.html">Transfers</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="analytics.html">Analytics</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ✅ Hero Section with Image and Overlay -->
+<section class="hero-section d-flex align-items-center justify-content-center text-center">
+    <div class="overlay"></div>
+    <div class="hero-content position-relative text-white px-3">
+        <h1 class="display-4 fw-bold">Welcome to TheUnitedBlog</h1>
+        <p class="lead">Your Ultimate Manchester United Match Analysis & Transfer Center</p>
+        <a href="match.html" class="btn btn-danger btn-lg mt-3">Explore Match Center →</a>
+    </div>
+</section>
+
+<!-- ================= LATEST MATCH CAROUSEL ================= -->
+<section class="container my-5">
+
+    <h3 class="text-center mb-4 fw-bold">
+        🎯 Latest Match
+    </h3>
+
+    <div id="latestMatchCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+
+        <div class="carousel-inner rounded">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="card border-0 bg-dark text-white text-center p-4">
+
+                    <img src="assets/res.jpg"
+                         class="img-fluid rounded mx-auto d-block mb-4 match-image"
+                         alt="Match Image">
+
+                    <p class="lead">
+                        Manchester United secured a brilliant 3–1 victory over Arsenal at Old Trafford.
+                        Rashford’s brace and Bruno’s midfield dominance led the charge!
+                    </p>
+
+                    <div class="text-center">
+                        <a href="match.html" class="btn btn-danger px-4">
+                            View Player Ratings
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="card border-0 bg-dark text-white text-center p-4">
+
+                    <img src="assets/res2.jpg"
+                         class="img-fluid rounded mx-auto d-block mb-4 match-image"
+                         alt="Match Image">
+
+                    <p class="lead">
+                        United dominated possession and secured another important win in the title race.
+                        A solid defensive display and clinical finishing sealed the result.
+                    </p>
+
+                    <div class="text-center">
+                        <a href="match.html" class="btn btn-danger px-4">
+                            View Player Ratings
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#latestMatchCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#latestMatchCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ✅ Features Section -->
+<section class="container my-5">
+    <div class="row g-4">
+
+        <!-- ⭐ Match Ratings -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-4">
+
+                <div class="mb-3">
+                    <div class="icon-box bg-danger bg-opacity-10 text-danger">
+                        <i class="bi bi-star fs-4"></i>
+                    </div>
+                </div>
+
+                <h4 class="fw-bold">Match Ratings</h4>
+                <p class="text-muted">
+                    Rate player performances from 1–10 and select your Man of the Match after every game.
+                </p>
+
+                <a href="match.html" class="text-danger fw-semibold text-decoration-none">
+                    Rate Players <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- 📈 Transfer Meter -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-4">
+
+                <div class="mb-3">
+                    <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                        <i class="bi bi-graph-up-arrow fs-4"></i>
+                    </div>
+                </div>
+
+                <h4 class="fw-bold">Transfer Meter</h4>
+                <p class="text-muted">
+                    Track transfer rumors and rate the likelihood of players joining Manchester United.
+                </p>
+
+                <a href="transfers.html" class="text-danger fw-semibold text-decoration-none">
+                    View Transfers <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- 📊 Match Predictions -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-4">
+
+                <div class="mb-3">
+                    <div class="icon-box bg-success bg-opacity-10 text-success">
+                        <i class="bi bi-bar-chart-line fs-4"></i>
+                    </div>
+                </div>
+
+                <h4 class="fw-bold">Match Predictions</h4>
+                <p class="text-muted">
+                    Predict upcoming fixture outcomes and track your prediction accuracy.
+                </p>
+
+                <a href="predictions.html" class="text-danger fw-semibold text-decoration-none">
+                    Make Predictions <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= PREMIER LEAGUE TABLE ================= -->
+<section class="container my-5">
+    <h3 class="text-center mb-4 fw-bold">Premier League Table</h3>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-striped text-center" id="pl-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Club</th>
+                <th>Played</th>
+                <th>Points</th>
+                <th>Form</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer py-5">
+    <div class="container">
+        <div class="row">
+
+            <!-- LEFT COLUMN -->
+            <div class="col-md-4 mb-4 text-start">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="assets/logo1.png"
+                         alt="Red Devils Hub Logo"
+                         class="footer-logo me-3">
+                    <h5 class="text-white fw-bold mb-0">Red Devils Hub</h5>
+                </div>
+
+                <p class="text-white mb-2">
+                    Your ultimate destination for Manchester United match ratings,
+                    transfer news, and predictions.
+                </p>
+            </div>
+
+            <!-- MIDDLE COLUMN (CENTERED) -->
+            <div class="col-md-4 mb-4 text-center">
+                <h5 class="text-white fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="match.html" class="footer-link">Match Center</a></li>
+                    <li><a href="transfers.html" class="footer-link">Transfer Meter</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- RIGHT COLUMN (RIGHT ALIGNED ON DESKTOP) -->
+            <div class="col-md-4 mb-4 text-md-end text-center">
+                <h5 class="text-white fw-bold mb-3">Connect With Us</h5>
+
+                <p class="text-white  mb-3">
+                    <i class="bi bi-envelope me-2"></i>
+                    info@reddevilshub.com
+                </p>
+
+                <div class="d-flex gap-3 mt-3 justify-content-md-end justify-content-center">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+
+        <hr class="border-secondary mt-4">
+
+        <div class="text-center text-muted small">
+            © 2026 Red Devils Hub. All rights reserved.
+        </div>
+
+    </div>
+</footer>
+
+
+
+
+<!-- ✅ Bootstrap JS Bundle  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
