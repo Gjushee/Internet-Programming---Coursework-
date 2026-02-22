@@ -1,0 +1,237 @@
+/* =========================================================
+   GLOBAL BACKGROUND (less bland, less white)
+========================================================= */
+.header-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+body {
+  background: radial-gradient(circle at top, #ffffff 0%, #f3f4f6 45%, #eceff3 100%);
+}
+
+/* Optional subtle pattern for depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(220,53,69,0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.12;
+  z-index: -1;
+}
+
+/* =========================================================
+   TRANSFER HERO
+========================================================= */
+.transfer-hero {
+  background: linear-gradient(135deg, #c40000, #7a0000);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.20);
+}
+
+/* =========================================================
+   SECTION BOX (premium look + accent strip)
+========================================================= */
+.section-box {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.section-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #dc3545, #a00000);
+}
+
+.section-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
+}
+
+/* =========================================================
+   FORMS (cleaner)
+========================================================= */
+.form-control, .form-select {
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  padding: 12px 14px;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: rgba(220, 53, 69, 0.55);
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+}
+
+/* Nicer danger buttons */
+.btn-danger {
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(220, 53, 69, 0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(220, 53, 69, 0.35);
+}
+
+/* =========================================================
+   TABLE (less bland)
+========================================================= */
+.table {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: #111827;
+  color: #fff;
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: rgba(220, 53, 69, 0.06);
+  transition: 0.15s ease;
+}
+
+/* =========================================================
+   SUMMARY STAT CARDS
+========================================================= */
+.stat-card {
+  border-radius: 16px;
+}
+
+/* =========================================================
+   FAVOURITE TRANSFERS (RED 3D + better arrows)
+========================================================= */
+.favourite-wrap {
+  background: linear-gradient(135deg, #a00000, #6f0000);
+  border-radius: 22px;
+  padding: 60px 40px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.favourite-inner {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px 70px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.favourite-slide {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+}
+
+.favourite-img {
+  width: 100%;
+  max-width: 420px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Arrows */
+.favourite-control {
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+/* Move arrows further away (adjust these values if needed) */
+.carousel-control-prev.favourite-control {
+  left: -60px;
+}
+.carousel-control-next.favourite-control {
+  right: -60px;
+}
+
+.favourite-control .carousel-control-prev-icon,
+.favourite-control .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  padding: 18px;
+  background-size: 60% 60%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .favourite-wrap {
+    padding: 45px 18px;
+  }
+  .favourite-inner {
+    padding: 25px 18px;
+  }
+  .favourite-slide {
+    min-height: auto;
+  }
+  .favourite-img {
+    max-width: 100%;
+    height: 260px;
+  }
+  .carousel-control-prev.favourite-control {
+    left: 8px;
+  }
+  .carousel-control-next.favourite-control {
+    right: 8px;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.main-footer {
+  background-color: #111827;
+}
+
+.footer-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.footer-link {
+  color: #adb5bd;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #1b263b;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  background-color: #dc3545;
+  transform: translateY(-3px);
+}

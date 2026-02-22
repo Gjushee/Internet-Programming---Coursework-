@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Meter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/transfers.css">
+
+</head>
+<body>
+
+<!-- ✅ Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/logo1.png"
+                 alt="Red Devils Hub Logo"
+                 class="header-logo me-3">
+            <div>
+                <strong>Red Devils Hub</strong><br>
+                <small class="text-muted">Manchester United Blog</small>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="match.html">Match Center</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="transfers.html">Transfers</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="analytics.html">Analytics</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- 🔴 HERO HEADER -->
+<section class="bg-danger text-white text-center py-5">
+    <h1 class="fw-bold">Transfer Meter</h1>
+    <p class="lead">Track Manchester United's potential signings</p>
+</section>
+
+<div class="container my-5">
+
+    <!-- ================= ADD RUMOR ================= -->
+    <section class="mb-5">
+        <div class="section-box">
+            <h4 class="fw-bold mb-1">Add Transfer Rumor</h4>
+            <p class="text-muted mb-4">Add a new transfer target and rate the likelihood</p>
+
+            <form id="transferForm" novalidate>
+                <div class="row g-3">
+
+                    <!-- Player Name -->
+                    <div class="col-md-4">
+                        <label class="form-label">Player Name *</label>
+                        <input type="text" id="playerName" class="form-control">
+                        <div class="invalid-feedback">
+                            Please enter at least 3 characters.
+                        </div>
+                    </div>
+
+                    <!-- Current Club -->
+                    <div class="col-md-4">
+                        <label class="form-label">Current Club *</label>
+                        <input type="text" id="currentClub" class="form-control">
+                        <div class="invalid-feedback">
+                            Please enter a valid club name.
+                        </div>
+                    </div>
+
+                    <!-- Position -->
+                    <div class="col-md-4">
+                        <label class="form-label">Position *</label>
+                        <select id="position" class="form-select">
+                            <option value="">Select Position</option>
+                            <option value="GK">GK</option>
+                            <option value="CB">CB</option>
+                            <option value="MID">MID</option>
+                            <option value="ST">ST</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a position.
+                        </div>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="col-md-4">
+                        <label class="form-label">Age *</label>
+                        <input type="number" id="age" class="form-control">
+                        <div class="invalid-feedback">
+                            Age must be between 16 and 45.
+                        </div>
+                    </div>
+
+                    <!-- Fee -->
+                    <div class="col-md-4">
+                        <label class="form-label">Estimated Fee *</label>
+                        <input type="text" id="fee" class="form-control" placeholder="e.g. £60m">
+                        <div class="invalid-feedback">
+                            Fee must start with £ and contain a number (e.g. £60m).
+                        </div>
+                    </div>
+
+                    <!-- Source -->
+                    <div class="col-md-4">
+                        <label class="form-label">Source *</label>
+                        <input type="text" id="source" class="form-control">
+                        <div class="invalid-feedback">
+                            Please enter a valid source.
+                        </div>
+                    </div>
+
+                    <!-- Likelihood -->
+                    <div class="col-12 mt-2">
+                        <label class="form-label fw-bold">
+                            Likelihood: <span id="likelihoodValue">5</span>/10
+                        </label>
+                        <input type="range" class="form-range" min="1" max="10" value="5" id="likelihood">
+                    </div>
+
+                </div>
+
+                <div class="text-end mt-4">
+                    <button type="submit" class="btn btn-danger px-4">
+                        + Add Transfer Rumor
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Filters row (add above the table) -->
+    <div class="row g-3 align-items-end mb-3">
+        <div class="col-md-4">
+            <label class="form-label fw-semibold mb-1">Filter by Position</label>
+            <select id="positionFilter" class="form-select">
+                <option value="ALL" selected>All Positions</option>
+                <option value="GK">GK</option>
+                <option value="CB">CB</option>
+                <option value="MID">MID</option>
+                <option value="ST">ST</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label fw-semibold mb-1">Sort by Likelihood</label>
+            <select id="sortSelect" class="form-select">
+                <option value="none" selected>No sorting</option>
+                <option value="high-low">Highest → Lowest</option>
+                <option value="low-high">Lowest → Highest</option>
+                <option value="position">Position (A → Z)</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 d-flex gap-2">
+            <button id="applyFiltersBtn" class="btn btn-danger w-100">
+                Apply
+            </button>
+            <button id="clearFiltersBtn" class="btn btn-outline-secondary w-100">
+                Clear
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= RUMOR TABLE ================= -->
+
+    <div class="card shadow-sm p-4 mb-5">
+
+        <h5 class="fw-bold mb-4">Transfer Rumors</h5>
+
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Current Club</th>
+                    <th>Position</th>
+                    <th>Age</th>
+                    <th>Fee</th>
+                    <th>Likelihood</th>
+                    <th>Source</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="transferTableBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <!-- ================= OUR FAVOURITE TRANSFERS ================= -->
+    <section class="container my-5">
+        <div class="favourite-wrap">
+
+            <div class="text-center mb-4">
+                <h3 class="text-white fw-bold mb-2">⭐ Our Favourite Transfers</h3>
+                <p class="text-white-50 mb-0">
+                    Five rumoured signings we think would improve Manchester United instantly.
+                </p>
+            </div>
+
+            <div class="favourite-inner position-relative">
+
+                <div id="favouriteTransfersCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="favourite-slide">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-lg-5 text-center">
+                                        <img src="assets/osi.jpg" class="favourite-img" alt="Victor Osimhen">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h4 class="fw-bold mb-3">
+                                            Victor Osimhen <span class="badge bg-danger ms-2">ST</span>
+                                        </h4>
+                                        <p class="mb-0">
+                                            Osimhen would give United a true penalty-box striker. His pace, movement,
+                                            physicality and pressing ability make him perfect for Premier League intensity.
+                                            He turns half-chances into goals and provides a consistent attacking focal point.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="favourite-slide">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-lg-5 text-center">
+                                        <img src="assets/jong.jpg" class="favourite-img" alt="Frenkie de Jong">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h4 class="fw-bold mb-3">
+                                            Frenkie de Jong <span class="badge bg-danger ms-2">MID</span>
+                                        </h4>
+                                        <p class="mb-0">
+                                            De Jong brings composure and control in midfield. He can resist pressure, progress the ball,
+                                            and dictate tempo. His intelligence and technical ability would help United dominate possession.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="favourite-slide">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-lg-5 text-center">
+                                        <img src="assets/brant.jpg" class="favourite-img" alt="Jarrad Branthwaite">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h4 class="fw-bold mb-3">
+                                            Jarrad Branthwaite <span class="badge bg-danger ms-2">CB</span>
+                                        </h4>
+                                        <p class="mb-0">
+                                            Branthwaite adds height, strength, and defensive stability. He improves set-piece defending,
+                                            wins aerial duels, and brings calmness at the back — a long-term defensive pillar.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="carousel-item">
+                            <div class="favourite-slide">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-lg-5 text-center">
+                                        <img src="assets/dcosta.jpg" class="favourite-img" alt="Diogo Costa">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h4 class="fw-bold mb-3">
+                                            Diogo Costa <span class="badge bg-danger ms-2">GK</span>
+                                        </h4>
+                                        <p class="mb-0">
+                                            A modern keeper comfortable with distribution and high lines. Costa improves build-up play,
+                                            stays calm under pressure, and offers reliable shot-stopping in big moments.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="carousel-item">
+                            <div class="favourite-slide">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-lg-5 text-center">
+                                        <img src="assets/olise.jpg" class="favourite-img" alt="Michael Olise">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <h4 class="fw-bold mb-3">
+                                            Michael Olise <span class="badge bg-danger ms-2">RW</span>
+                                        </h4>
+                                        <p class="mb-0">
+                                            Olise offers creativity and end product from the right. He can unlock low blocks with his
+                                            passing/crossing and add consistent threat in the final third.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Controls (positioned nicely) -->
+                    <button class="carousel-control-prev favourite-control" type="button"
+                            data-bs-target="#favouriteTransfersCarousel" data-bs-slide="prev" aria-label="Previous">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next favourite-control" type="button"
+                            data-bs-target="#favouriteTransfersCarousel" data-bs-slide="next" aria-label="Next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SUMMARY CARDS ================= -->
+    <div class="row g-4 text-center">
+
+        <div class="col-md-4">
+            <div class="card p-4 shadow-sm">
+                <h6>Total Rumors</h6>
+                <h2 class="text-danger fw-bold" id="totalRumors">0</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-4 shadow-sm">
+                <h6>Very Likely (8+)</h6>
+                <h2 class="text-success fw-bold" id="veryLikely">0</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-4 shadow-sm">
+                <h6>Avg. Likelihood</h6>
+                <h2 class="text-warning fw-bold" id="avgLikelihood">0</h2>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer py-5">
+    <div class="container">
+        <div class="row">
+
+            <!-- LEFT COLUMN -->
+            <div class="col-md-4 mb-4 text-start">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="assets/logo1.png"
+                         alt="Red Devils Hub Logo"
+                         class="footer-logo me-3">
+                    <h5 class="text-white fw-bold mb-0">Red Devils Hub</h5>
+                </div>
+
+                <p class="text-white mb-2">
+                    Your ultimate destination for Manchester United match ratings,
+                    transfer news, and predictions.
+                </p>
+            </div>
+
+            <!-- MIDDLE COLUMN (CENTERED) -->
+            <div class="col-md-4 mb-4 text-center">
+                <h5 class="text-white fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="match.html" class="footer-link">Match Center</a></li>
+                    <li><a href="transfers.html" class="footer-link">Transfer Meter</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- RIGHT COLUMN (RIGHT ALIGNED ON DESKTOP) -->
+            <div class="col-md-4 mb-4 text-md-end text-center">
+                <h5 class="text-white fw-bold mb-3">Connect With Us</h5>
+
+                <p class="text-white  mb-3">
+                    <i class="bi bi-envelope me-2"></i>
+                    info@reddevilshub.com
+                </p>
+
+                <div class="d-flex gap-3 mt-3 justify-content-md-end justify-content-center">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="border-secondary mt-4">
+
+    <div class="text-center text-muted small">
+        © 2026 Red Devils Hub. All rights reserved.
+    </div>
+
+    </div>
+</footer>
+
+<script src="js/transfers.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

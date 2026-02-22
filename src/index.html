@@ -60,144 +60,136 @@
     </div>
 </section>
 
-<!-- ================= LATEST MATCH CAROUSEL ================= -->
+<!-- ================= RECENT MATCH ================= -->
 <section class="container my-5">
+    <div class="section-box">
 
-    <h3 class="text-center mb-4 fw-bold">
-        🎯 Latest Match
-    </h3>
+        <h3 class="text-center mb-4 fw-bold">
+            🎯 Latest Match
+        </h3>
 
-    <div id="latestMatchCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+        <div id="latestMatchCarousel" class="carousel slide" data-bs-ride="carousel">
 
-        <div class="carousel-inner rounded">
+            <div class="carousel-inner rounded">
 
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <div class="card border-0 bg-dark text-white text-center p-4">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="card border-0 bg-dark text-white text-center p-4">
 
-                    <img src="assets/res.jpg"
-                         class="img-fluid rounded mx-auto d-block mb-4 match-image"
-                         alt="Match Image">
+                        <img src="assets/rez.jpg"
+                             class="img-fluid rounded mx-auto d-block mb-4 match-image"
+                             alt="Match Image">
 
-                    <p class="lead">
-                        Manchester United secured a brilliant 3–1 victory over Arsenal at Old Trafford.
-                        Rashford’s brace and Bruno’s midfield dominance led the charge!
-                    </p>
+                        <p class="lead">
+                            Manchester United secured a brilliant 3–1 victory over Arsenal at Old Trafford.
+                            Rashford’s brace and Bruno’s midfield dominance led the charge!
+                        </p>
 
-                    <div class="text-center">
-                        <a href="match.html" class="btn btn-danger px-4">
-                            View Player Ratings
-                        </a>
+                        <div class="text-center">
+                            <a href="match.html" class="btn btn-danger px-4">
+                                View Player Ratings
+                            </a>
+                        </div>
+
                     </div>
-
                 </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="card border-0 bg-dark text-white text-center p-4">
+
+                        <img src="assets/res2.jpg"
+                             class="img-fluid rounded mx-auto d-block mb-4 match-image"
+                             alt="Match Image">
+
+                        <p class="lead">
+                            United dominated possession and secured another important win in the title race.
+                            A solid defensive display and clinical finishing sealed the result.
+                        </p>
+
+                        <div class="text-center">
+                            <a href="match.html" class="btn btn-danger px-4">
+                                View Player Ratings
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-                <div class="card border-0 bg-dark text-white text-center p-4">
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#latestMatchCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
 
-                    <img src="assets/res2.jpg"
-                         class="img-fluid rounded mx-auto d-block mb-4 match-image"
-                         alt="Match Image">
-
-                    <p class="lead">
-                        United dominated possession and secured another important win in the title race.
-                        A solid defensive display and clinical finishing sealed the result.
-                    </p>
-
-                    <div class="text-center">
-                        <a href="match.html" class="btn btn-danger px-4">
-                            View Player Ratings
-                        </a>
-                    </div>
-
-                </div>
-            </div>
+            <button class="carousel-control-next" type="button" data-bs-target="#latestMatchCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
 
         </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#latestMatchCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#latestMatchCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
 
     </div>
-
 </section>
 
-<!-- ✅ Features Section -->
+<!-- ================= EXPLORE MORE ================= -->
 <section class="container my-5">
-    <div class="row g-4">
+    <div class="section-box">
 
-        <!-- ⭐ Match Ratings -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 p-4">
+        <h3 class="text-center mb-5 fw-bold">
+            🚀 Explore More
+        </h3>
 
-                <div class="mb-3">
-                    <div class="icon-box bg-danger bg-opacity-10 text-danger">
-                        <i class="bi bi-star fs-4"></i>
+        <div class="row g-4">
+
+            <!-- Match Ratings -->
+            <div class="col-md-4">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <div class="card-body">
+                        <i class="bi bi-star-fill fs-1 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">Match Ratings</h5>
+                        <p class="card-text">
+                            Rate player performances and select your Man of the Match.
+                        </p>
+                        <a href="match.html" class="btn btn-outline-danger">
+                            Rate Players
+                        </a>
                     </div>
                 </div>
-
-                <h4 class="fw-bold">Match Ratings</h4>
-                <p class="text-muted">
-                    Rate player performances from 1–10 and select your Man of the Match after every game.
-                </p>
-
-                <a href="match.html" class="text-danger fw-semibold text-decoration-none">
-                    Rate Players <i class="bi bi-arrow-right"></i>
-                </a>
-
             </div>
-        </div>
 
-        <!-- 📈 Transfer Meter -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 p-4">
-
-                <div class="mb-3">
-                    <div class="icon-box bg-primary bg-opacity-10 text-primary">
-                        <i class="bi bi-graph-up-arrow fs-4"></i>
+            <!-- Transfer Meter -->
+            <div class="col-md-4">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <div class="card-body">
+                        <i class="bi bi-arrow-left-right fs-1 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">Transfer Meter</h5>
+                        <p class="card-text">
+                            Track transfer rumours and rate likelihood of new signings.
+                        </p>
+                        <a href="transfers.html" class="btn btn-outline-danger">
+                            View Transfers
+                        </a>
                     </div>
                 </div>
-
-                <h4 class="fw-bold">Transfer Meter</h4>
-                <p class="text-muted">
-                    Track transfer rumors and rate the likelihood of players joining Manchester United.
-                </p>
-
-                <a href="transfers.html" class="text-danger fw-semibold text-decoration-none">
-                    View Transfers <i class="bi bi-arrow-right"></i>
-                </a>
-
             </div>
-        </div>
 
-        <!-- 📊 Match Predictions -->
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0 p-4">
-
-                <div class="mb-3">
-                    <div class="icon-box bg-success bg-opacity-10 text-success">
-                        <i class="bi bi-bar-chart-line fs-4"></i>
+            <!-- Match Predictions -->
+            <div class="col-md-4">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <div class="card-body">
+                        <i class="bi bi-graph-up-arrow fs-1 text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">Match Predictions</h5>
+                        <p class="card-text">
+                            Predict upcoming fixtures and track your accuracy.
+                        </p>
+                        <a href="predictions.html" class="btn btn-outline-danger">
+                            Make Predictions
+                        </a>
                     </div>
                 </div>
-
-                <h4 class="fw-bold">Match Predictions</h4>
-                <p class="text-muted">
-                    Predict upcoming fixture outcomes and track your prediction accuracy.
-                </p>
-
-                <a href="predictions.html" class="text-danger fw-semibold text-decoration-none">
-                    Make Predictions <i class="bi bi-arrow-right"></i>
-                </a>
-
             </div>
+
         </div>
 
     </div>
@@ -206,23 +198,32 @@
 
 <!-- ================= PREMIER LEAGUE TABLE ================= -->
 <section class="container my-5">
-    <h3 class="text-center mb-4 fw-bold">Premier League Table</h3>
+    <div class="section-box">
 
-    <div class="table-responsive">
-        <table class="table table-dark table-striped text-center" id="pl-table">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Club</th>
-                <th>Played</th>
-                <th>Points</th>
-                <th>Form</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- Data will be inserted here -->
-            </tbody>
-        </table>
+        <h3 class="text-center mb-4 fw-bold">
+            🏆 Premier League Table
+        </h3>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle text-center" id="pl-table">
+
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="text-start">Club</th>
+                    <th>Played</th>
+                    <th>Points</th>
+                    <th>Form</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <!-- Filled dynamically by JS -->
+                </tbody>
+
+            </table>
+        </div>
+
     </div>
 </section>
 

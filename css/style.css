@@ -1,3 +1,24 @@
+/* =========================================================
+   GLOBAL BACKGROUND (Less Bland White)
+========================================================= */
+body {
+  background: radial-gradient(circle at top, #ffffff 0%, #f3f4f6 45%, #eceff3 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(220,53,69,0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.12;
+  z-index: -1;
+}
+
+/* =========================================================
+   HEADER LOGO
+========================================================= */
 .header-logo {
   width: 80px;
   height: 80px;
@@ -5,8 +26,9 @@
   border-radius: 50%;
 }
 
-
-/* Hero Section */
+/* =========================================================
+   HERO SECTION
+========================================================= */
 .hero-section {
   min-height: 100vh;
   background: url('/assets/123.png') no-repeat center center;
@@ -16,11 +38,8 @@
 
 .hero-section .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(138, 0, 0, 0.30); /* Red overlay */
+  inset: 0;
+  background-color: rgba(138, 0, 0, 0.35);
   z-index: 0;
 }
 
@@ -30,49 +49,117 @@
   padding: 2rem;
 }
 
-/* Navbar Hover */
+/* =========================================================
+   NAVBAR
+========================================================= */
 .navbar .nav-link:hover {
   text-decoration: underline;
 }
 
-/* Active nav link */
 .nav-link.active {
   font-weight: bold;
 }
 
-/* Match Card Dark Background */
-.match-card-dark {
-  background-color: #1c1c1c;
+/* =========================================================
+   SECTION BOX (Premium Upgrade)
+========================================================= */
+.section-box {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-/* Make match text slightly softer white */
+.section-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #dc3545, #a00000);
+}
+
+.section-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   MATCH CARD
+========================================================= */
+.match-card-dark {
+  background-color: #1c1c1c;
+  border-radius: 16px;
+}
+
 .match-card-dark p {
   color: #dddddd;
 }
 
-
 .match-image {
-    max-height: 400px;
-    object-fit: cover;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 14px;
 }
 
-/* Improve table header spacing */
+/* =========================================================
+   TABLE UPGRADE
+========================================================= */
+.table {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
 .table thead th {
+  background: #111827;
+  color: #ffffff;
   font-weight: 600;
+  border-bottom: none;
 }
 
-/* Add slight hover effect to cards */
-.card:hover {
-  transform: translateY(-3px);
-  transition: 0.3s ease;
+.table tbody tr:hover {
+  background: rgba(220, 53, 69, 0.06);
+  transition: 0.15s ease;
 }
 
-/* Improve section spacing */
-section {
-  padding-top: 40px;
-  padding-bottom: 40px;
+/* =========================================================
+   FORM IMPROVEMENTS
+========================================================= */
+.form-control,
+.form-select {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  padding: 12px 14px;
 }
 
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(220, 53, 69, 0.55);
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+}
+
+/* =========================================================
+   ICON BOX
+========================================================= */
 .icon-box {
   width: 50px;
   height: 50px;
@@ -82,64 +169,46 @@ section {
   justify-content: center;
 }
 
-.card {
-  transition: 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/*Table*/
-
+/* =========================================================
+   PREMIER LEAGUE TABLE ELEMENTS
+========================================================= */
 .club-logo {
-    width: 25px;
-    height: 25px;
-    object-fit: contain;
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
 }
 
 .form-circle {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: bold;
-    margin-right: 3px;
-    color: white;
-    text-align: center;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 3px;
+  color: white;
+  text-align: center;
 }
 
-.win {
-    background-color: #28a745; /* green */
-}
+.win { background-color: #28a745; }
+.draw { background-color: #ffc107; color: black; }
+.loss { background-color: #dc3545; }
 
-.draw {
-    background-color: #ffc107; /* yellow */
-    color: black;
-}
-
-.loss {
-    background-color: #dc3545; /* red */
-}
-
+/* Highlight animation */
 .highlight-row {
-    animation: glow 2s infinite alternate;
-    font-weight: bold;
+  animation: glow 2s infinite alternate;
+  font-weight: bold;
 }
 
 @keyframes glow {
-    from {
-        background-color: rgba(220, 53, 69, 0.2);
-    }
-    to {
-        background-color: rgba(220, 53, 69, 0.5);
-    }
+  from { background-color: rgba(220, 53, 69, 0.2); }
+  to { background-color: rgba(220, 53, 69, 0.5); }
 }
 
-/* ================= FOOTER ================= */
-
+/* =========================================================
+   FOOTER
+========================================================= */
 .main-footer {
   background-color: #111827;
 }
@@ -180,4 +249,24 @@ section {
   transform: translateY(-3px);
 }
 
+/* =========================================================
+   BUTTON ENHANCEMENT
+========================================================= */
+.btn-danger {
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(220, 53, 69, 0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
 
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(220, 53, 69, 0.35);
+}
+
+/* =========================================================
+   SECTION SPACING
+========================================================= */
+section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
