@@ -1,30 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>About Us - Man Utd Blog</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <meta charset="UTF-8">
+    <title>About Us | Red Devils Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- About Page Styles -->
+    <link rel="stylesheet" href="css/about.css">
 </head>
+
 <body>
-<header>
-    <h1>🔴 TheUnitedBlog</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
 
-<main>
-    <h2>About This Blog</h2>
-    <p>This is a simple fan blog run by a passionate Manchester United supporter 💪</p>
-    <p>I post after-match reactions, highlight top players and share my passion for the Red Devils.</p>
-    <img src="https://cdn.prod.website-files.com/5de5569063e17beb5353952b/5fa528a3c6811512d2baf88b_Premier-Lift-Group-Project-Man-United-hero.jpg" alt="Old Trafford Stadium" width="500"/>
-</main>
+<!-- ✅ Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/logo1.png"
+                 alt="Red Devils Hub Logo"
+                 class="header-logo me-3">
+            <div>
+                <strong>Red Devils Hub</strong><br>
+                <small class="text-muted">Manchester United Blog</small>
+            </div>
+        </a>
 
-<footer>
-    <p>© 2026 Man Utd Fan Blog</p>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="#">Match Center</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="transfers.html">Transfers</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="analytics.html">Analytics</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+<section class="about-hero text-white text-center py-5">
+    <div class="container">
+        <h1 class="fw-bold">About Red Devils Hub</h1>
+        <p>Your comprehensive Manchester United analysis platform, built by fans for fans</p>
+    </div>
+</section>
+
+<!-- ================= ABOUT SECTION ================= -->
+<div class="container my-5">
+
+    <div class="about-box text-center mx-auto">
+        <h3 class="fw-bold mb-3">Our Mission</h3>
+        <p class="text-muted">
+            Red Devils Hub was created to provide Manchester United supporters with a comprehensive
+            platform to analyze matches, track transfers, and engage with fellow fans.
+            Our mission is to enhance your match-day experience through data-driven insights
+            and interactive community features.
+        </p>
+
+        <p class="text-muted">
+            Whether you're rating player performances, predicting upcoming fixtures,
+            or tracking the latest transfer rumors, Red Devils Hub offers
+            all the tools you need to stay connected with your favorite club.
+        </p>
+
+        <!-- Features Mini Cards -->
+        <div class="row mt-4 g-4 justify-content-center">
+
+            <div class="col-md-4">
+                <div class="mini-card">
+                    <i class="bi bi-graph-up fs-2 text-danger"></i>
+                    <h6 class="mt-2 fw-bold">Match Analysis</h6>
+                    <p class="small text-muted">In-depth player ratings & performance tracking</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mini-card">
+                    <i class="bi bi-bar-chart fs-2 text-danger"></i>
+                    <h6 class="mt-2 fw-bold">Data Insights</h6>
+                    <p class="small text-muted">Visual analytics and prediction tracking</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mini-card">
+                    <i class="bi bi-arrow-left-right fs-2 text-danger"></i>
+                    <h6 class="mt-2 fw-bold">Transfer News</h6>
+                    <p class="small text-muted">Latest rumors with likelihood ratings</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ================= TEAM SECTION ================= -->
+<section class="team-section py-5">
+    <div class="container">
+        <h3 class="text-center fw-bold mb-5">Meet Our Team</h3>
+
+        <div class="row g-4">
+
+            <!-- Member 1 -->
+            <div class="col-md-3">
+                <div class="team-card text-center">
+                    <img src="assets/team1.jpg" class="team-img" alt="">
+                    <h6 class="mt-3 fw-bold">James Walker</h6>
+                    <p class="text-muted small">Lead Developer</p>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="col-md-3">
+                <div class="team-card text-center">
+                    <img src="assets/team2.jpg" class="team-img" alt="">
+                    <h6 class="mt-3 fw-bold">Sofia Martinez</h6>
+                    <p class="text-muted small">Data Analyst</p>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="col-md-3">
+                <div class="team-card text-center">
+                    <img src="assets/team3.jpg" class="team-img" alt="">
+                    <h6 class="mt-3 fw-bold">Daniel Hughes</h6>
+                    <p class="text-muted small">UI/UX Designer</p>
+                </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="col-md-3">
+                <div class="team-card text-center">
+                    <img src="assets/team4.jpg" class="team-img" alt="">
+                    <h6 class="mt-3 fw-bold">Emily Carter</h6>
+                    <p class="text-muted small">Community Manager</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= TESTIMONIAL CAROUSEL ================= -->
+<div class="container my-5">
+
+    <h4 class="text-center fw-bold mb-4">What Fans Are Saying</h4>
+
+    <div id="aboutCarousel" class="carousel slide about-carousel" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active text-center">
+                <img src="assets/testimonial1.jpg" class="carousel-img" alt="">
+                <p class="mt-4 fst-italic">
+                    "Predictions are fun to make and the analytics dashboard shows everything clearly."
+                </p>
+                <span class="text-danger small">— Michael, Dublin</span>
+            </div>
+
+            <div class="carousel-item text-center">
+                <img src="assets/testimonial2.jpg" class="carousel-img" alt="">
+                <p class="mt-4 fst-italic">
+                    "The transfer meter makes rumors much more interesting!"
+                </p>
+                <span class="text-danger small">— Sarah, Manchester</span>
+            </div>
+
+            <div class="carousel-item text-center">
+                <img src="assets/testimonial3.jpg" class="carousel-img" alt="">
+                <p class="mt-4 fst-italic">
+                    "Best fan-made platform for Manchester United supporters."
+                </p>
+                <span class="text-danger small">— Alex, London</span>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PLATFORM FEATURES SECTION ================= -->
+<section class="features-section text-white text-center py-5">
+    <div class="container">
+        <h3 class="fw-bold mb-5">Platform Features</h3>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <i class="bi bi-star-fill fs-1"></i>
+                <h6 class="mt-2">Player Ratings</h6>
+                <p class="small">Rate every player's performance from 1–10</p>
+            </div>
+
+            <div class="col-md-4">
+                <i class="bi bi-lightbulb fs-1"></i>
+                <h6 class="mt-2">Match Predictions</h6>
+                <p class="small">Predict upcoming fixtures and track accuracy</p>
+            </div>
+
+            <div class="col-md-4">
+                <i class="bi bi-graph-up-arrow fs-1"></i>
+                <h6 class="mt-2">Transfer Meter</h6>
+                <p class="small">Track transfer targets with likelihood ratings</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer py-5">
+    <div class="container">
+        <div class="row">
+
+            <!-- LEFT COLUMN -->
+            <div class="col-md-4 mb-4 text-start">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="assets/logo1.png"
+                         alt="Red Devils Hub Logo"
+                         class="footer-logo me-3">
+                    <h5 class="text-white fw-bold mb-0">Red Devils Hub</h5>
+                </div>
+
+                <p class="text-white mb-2">
+                    Your ultimate destination for Manchester United match ratings,
+                    transfer news, and predictions.
+                </p>
+            </div>
+
+            <!-- MIDDLE COLUMN (CENTERED) -->
+            <div class="col-md-4 mb-4 text-center">
+                <h5 class="text-white fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="match.html" class="footer-link">Match Center</a></li>
+                    <li><a href="transfers.html" class="footer-link">Transfer Meter</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- RIGHT COLUMN (RIGHT ALIGNED ON DESKTOP) -->
+            <div class="col-md-4 mb-4 text-md-end text-center">
+                <h5 class="text-white fw-bold mb-3">Connect With Us</h5>
+
+                <p class="text-white  mb-3">
+                    <i class="bi bi-envelope me-2"></i>
+                    info@reddevilshub.com
+                </p>
+
+                <div class="d-flex gap-3 mt-3 justify-content-md-end justify-content-center">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="border-secondary mt-4">
+
+    <div class="text-center text-muted small">
+        © 2026 Red Devils Hub. All rights reserved.
+    </div>
+
+    </div>
 </footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
