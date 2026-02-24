@@ -17,7 +17,7 @@ const applyFiltersBtn = document.querySelector("#applyFiltersBtn");
 const clearFiltersBtn = document.querySelector("#clearFiltersBtn");
 
 // =============================
-// DATA
+// DEFAULT DATA (Your examples stay)
 // =============================
 
 let transfers = [
@@ -26,8 +26,39 @@ let transfers = [
     { name: "Jarrad Branthwaite", club: "Everton", position: "CB", age: 21, fee: "£60m", likelihood: 8, source: "BBC Sport" }
 ];
 
+// =============================
+// LOAD FROM LOCAL STORAGE (SAFE)
+// =============================
+
+const savedTransfers = localStorage.getItem("transfers");
+
+if (savedTransfers) {
+    try {
+        const parsed = JSON.parse(savedTransfers);
+
+        if (
+            Array.isArray(parsed) &&
+            parsed.length > 0 &&
+            parsed[0].name &&
+            parsed[0].club
+        ) {
+            transfers = parsed;
+        }
+    } catch (err) {
+        console.warn("Invalid localStorage data — using default examples.");
+    }
+}
+
 let activeSort = "none";
 let activePosition = "ALL";
+
+// =============================
+// SAVE FUNCTION
+// =============================
+
+function saveTransfers() {
+    localStorage.setItem("transfers", JSON.stringify(transfers));
+}
 
 // =============================
 // SLIDER
@@ -95,6 +126,7 @@ function attachDeleteListeners() {
         button.addEventListener("click", () => {
             const index = parseInt(button.dataset.index);
             transfers.splice(index, 1);
+            saveTransfers(); // Save after delete
             renderTable();
         });
     });
@@ -178,6 +210,8 @@ form.addEventListener("submit", function (e) {
 
     transfers.push({ name, club, position, age, fee, likelihood, source });
 
+    saveTransfers(); // Save after add
+
     form.reset();
     likelihoodValue.textContent = "5";
     likelihoodInput.value = "5";
@@ -204,4 +238,7 @@ clearFiltersBtn.addEventListener("click", () => {
 });
 
 // =============================
+// INIT
+// =============================
+
 renderTable();

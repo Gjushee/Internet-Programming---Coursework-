@@ -13,38 +13,56 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    <i class="bi bi-star"></i>
-
+    <script src="js/darkmode.js"></script>
     <script src="js/index.js"></script>
 
 </head>
 <body>
 
 <!-- ✅ Bootstrap Navbar -->
-<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg custom-navbar sticky-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
+
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
             <img src="assets/logo1.png"
-                          alt="Red Devils Hub Logo"
-                          class="header-logo me-3">
-            <div>
-                <strong>Red Devils Hub</strong><br>
-                <small class="text-muted">Manchester United Blog</small>
+                 alt="Red Devils Hub Logo"
+                 class="header-logo me-3">
+
+            <div class="brand-text">
+                <span class="brand-title">Red Devils Hub</span>
+                <small class="brand-subtitle">Manchester United Blog</small>
             </div>
         </a>
 
+        <!-- Mobile Toggle -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Nav Links -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="match.html">Match Center</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="transfers.html">Transfers</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="analytics.html">Analytics</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+            <ul class="navbar-nav align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="match.html">Match Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transfers.html">Transfers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item ms-lg-3">
+                    <button id="darkModeToggle" class="btn btn-sm dark-toggle-btn">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
@@ -54,8 +72,9 @@
 <section class="hero-section d-flex align-items-center justify-content-center text-center">
     <div class="overlay"></div>
     <div class="hero-content position-relative text-white px-3">
-        <h1 class="display-4 fw-bold">Welcome to TheUnitedBlog</h1>
-        <p class="lead">Your Ultimate Manchester United Match Analysis & Transfer Center</p>
+        <h1 class="display-4 fw-bold">Welcome to Red Devils Hub</h1>
+        <p class="lead">Welcome to Red Devil Hub – your home for everything Manchester United.
+            At Red Devil Hub, passion meets analysis. We break down every match with sharp, honest player ratings, giving you a clear view of who stepped up and who needs to do better. </p>
         <a href="match.html" class="btn btn-danger btn-lg mt-3">Explore Match Center →</a>
     </div>
 </section>
@@ -76,13 +95,12 @@
                 <div class="carousel-item active">
                     <div class="card border-0 bg-dark text-white text-center p-4">
 
-                        <img src="assets/rez.jpg"
+                        <img src="assets/reS.jpg"
                              class="img-fluid rounded mx-auto d-block mb-4 match-image"
                              alt="Match Image">
 
                         <p class="lead">
-                            Manchester United secured a brilliant 3–1 victory over Arsenal at Old Trafford.
-                            Rashford’s brace and Bruno’s midfield dominance led the charge!
+                            Manchester United produced one of their standout performances of the season in a dramatic 3–2 win over Arsenal. After falling behind, United showed real composure and attacking intent, responding quickly and taking advantage of transitions. Their forward play was direct and clinical, punishing Arsenal’s defensive gaps with sharp movement and decisive finishing. The late winner summed up United’s resilience — they stayed aggressive rather than settling for a draw.
                         </p>
 
                         <div class="text-center">
@@ -103,8 +121,7 @@
                              alt="Match Image">
 
                         <p class="lead">
-                            United dominated possession and secured another important win in the title race.
-                            A solid defensive display and clinical finishing sealed the result.
+                            Arsenal, on the other hand, controlled large portions of possession and created several strong chances, but they struggled to manage the game defensively when it mattered most. Despite responding well to go 2–2, they looked vulnerable against quick counters and lacked control in the final stages. It was a high-quality, end-to-end match, but United’s efficiency in key moments ultimately made the difference.
                         </p>
 
                         <div class="text-center">
@@ -179,12 +196,12 @@
                 <div class="card h-100 text-center shadow-sm border-0">
                     <div class="card-body">
                         <i class="bi bi-graph-up-arrow fs-1 text-danger mb-3"></i>
-                        <h5 class="card-title fw-bold">Match Predictions</h5>
+                        <h5 class="card-title fw-bold">About Our Team</h5>
                         <p class="card-text">
-                            Predict upcoming fixtures and track your accuracy.
+                            Learn more about our gaols and team.
                         </p>
                         <a href="predictions.html" class="btn btn-outline-danger">
-                            Make Predictions
+                            Read More
                         </a>
                     </div>
                 </div>

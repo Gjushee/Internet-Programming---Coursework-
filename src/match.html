@@ -7,40 +7,59 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-X`
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
+    <script src="js/darkmode.js"></script>
     <link rel="stylesheet" href="css/match.css">
 </head>
 
 <body>
 
 <!-- ✅ Bootstrap Navbar -->
-<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg custom-navbar sticky-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
+
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
             <img src="assets/logo1.png"
                  alt="Red Devils Hub Logo"
                  class="header-logo me-3">
-            <div>
-                <strong>Red Devils Hub</strong><br>
-                <small class="text-muted">Manchester United Blog</small>
+
+            <div class="brand-text">
+                <span class="brand-title">Red Devils Hub</span>
+                <small class="brand-subtitle">Manchester United Blog</small>
             </div>
         </a>
 
+        <!-- Mobile Toggle -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Nav Links -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active text-danger fw-bold" href="#">Match Center</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="transfers.html">Transfers</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="analytics.html">Analytics</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+            <ul class="navbar-nav align-items-lg-center">
+                <li class="nav-item">
+                    <a  class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Match Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transfers.html">Transfers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item ms-lg-3">
+                    <button id="darkModeToggle" class="btn btn-sm dark-toggle-btn">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
@@ -50,7 +69,7 @@ X`
 
 <!-- ===== PAGE TITLE ===== -->
 <section class="container my-5 text-center">
-    <h2 class="fw-bold">Player Ratings for the Recent Game</h2>
+    <h2 class="fw-bold3">Player Ratings for the Recent Game</h2>
 </section>
 
     <!-- ================= PLAYERS ================= -->

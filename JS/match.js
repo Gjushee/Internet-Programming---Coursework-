@@ -1,8 +1,9 @@
-// Generate 1-10 rating buttons
+// ================= CREATE RATING BUTTONS =================
+
 function createRatingButtons() {
     let html = '<div class="btn-group flex-wrap">';
     for (let i = 1; i <= 10; i++) {
-        html += `<button class="btn btn-outline-danger rating-btn">${i}</button>`;
+        html += `<button class="btn rating-btn">${i}</button>`;
     }
     html += '</div>';
     return html;
@@ -13,62 +14,80 @@ document.querySelectorAll(".rating-buttons").forEach(container => {
     container.innerHTML = createRatingButtons();
 });
 
-// Handle clicks (ratings + MOTM)
+// ================= CLICK HANDLER =================
+
 document.addEventListener("click", function (e) {
 
-    // Rating highlight
+    // ================= RATING CLICK =================
     if (e.target.classList.contains("rating-btn")) {
+
         const group = e.target.closest(".rating-buttons");
 
+        // Remove selected from siblings
         group.querySelectorAll(".rating-btn").forEach(btn => {
-            btn.classList.remove("btn-dark");
-            btn.classList.add("btn-outline-light");
+            btn.classList.remove("rating-selected");
         });
 
-        e.target.classList.remove("btn-outline-light");
-        e.target.classList.add("btn-dark");
+        // Add selected to clicked
+        e.target.classList.add("rating-selected");
     }
 
-    // Only ONE Man of the Match
+    // ================= MOTM (ONLY ONE) =================
     if (e.target.closest(".motm-btn")) {
-        document.querySelectorAll(".motm-btn i").forEach(icon => {
+
+        // Reset all MOTM buttons
+        document.querySelectorAll(".motm-btn").forEach(btn => {
+            btn.classList.remove("btn-warning");
+            btn.classList.add("btn-light");
+
+            const icon = btn.querySelector("i");
             icon.classList.remove("bi-star-fill");
             icon.classList.add("bi-star");
         });
 
-        const star = e.target.closest(".motm-btn").querySelector("i");
+        const selectedBtn = e.target.closest(".motm-btn");
+
+        selectedBtn.classList.remove("btn-light");
+        selectedBtn.classList.add("btn-warning");
+
+        const star = selectedBtn.querySelector("i");
         star.classList.remove("bi-star");
         star.classList.add("bi-star-fill");
     }
 });
 
-// ================= RESET FUNCTION (jQuery) =================
+// ================= RESET FUNCTION =================
 
 $("#reset-ratings").click(function () {
 
-    // Reset rating buttons
-    $(".rating-btn").removeClass("btn-dark")
-                    .addClass("btn-outline-light");
+    $(".rating-btn").removeClass("rating-selected");
 
-    // Reset Man of the Match star
+    $(".motm-btn")
+        .removeClass("btn-warning")
+        .addClass("btn-light");
+
     $(".motm-btn i")
         .removeClass("bi-star-fill")
         .addClass("bi-star");
-});
 
+    $("#average-rating").text("0");
+
+    if (chart) {
+        chart.destroy();
+    }
+});
 
 // ================= SUBMIT RATINGS =================
 
-let chart; // store chart instance
+let chart;
 
 $("#submit-ratings").click(function () {
 
     let ratings = [];
 
-    // Collect selected ratings
     $(".rating-buttons").each(function () {
 
-        const selected = $(this).find(".btn-dark").text();
+        const selected = $(this).find(".rating-selected").text();
 
         if (selected) {
             ratings.push(parseInt(selected));
@@ -80,25 +99,23 @@ $("#submit-ratings").click(function () {
         return;
     }
 
-    // Count ratings distribution (1-10)
+    // Distribution
     let distribution = new Array(10).fill(0);
 
     ratings.forEach(rating => {
         distribution[rating - 1]++;
     });
 
-    // Calculate average
+    // Average
     const sum = ratings.reduce((a, b) => a + b, 0);
     const average = (sum / ratings.length).toFixed(2);
 
     $("#average-rating").text(average);
 
-    // Destroy old chart if exists
     if (chart) {
         chart.destroy();
     }
 
-    // Create new chart
     const ctx = document.getElementById("ratingsChart").getContext("2d");
 
     chart = new Chart(ctx, {
@@ -108,7 +125,9 @@ $("#submit-ratings").click(function () {
             datasets: [{
                 label: "Number of Players",
                 data: distribution,
-                backgroundColor: "#dc3545"
+                backgroundColor: document.body.classList.contains("dark-mode")
+                    ? "#22c55e"
+                    : "#dc3545"
             }]
         },
         options: {
@@ -116,19 +135,28 @@ $("#submit-ratings").click(function () {
             plugins: {
                 legend: {
                     labels: {
-                        color: "white"
+                        color: document.body.classList.contains("dark-mode")
+                            ? "white"
+                            : "black"
                     }
                 }
             },
             scales: {
                 x: {
-                    ticks: { color: "white" }
+                    ticks: {
+                        color: document.body.classList.contains("dark-mode")
+                            ? "white"
+                            : "black"
+                    }
                 },
                 y: {
-                    ticks: { color: "white" }
+                    ticks: {
+                        color: document.body.classList.contains("dark-mode")
+                            ? "white"
+                            : "black"
+                    }
                 }
             }
         }
     });
-
 });
