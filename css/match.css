@@ -117,6 +117,17 @@
 }
 
 
+/* Page Title */
+
+.match-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff; /* bright white for readability */
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6); /* improves visibility over image */
+    margin-bottom: 20px;
+}
+
+
 /* ================= PLAYER CARDS ================= */
 
 /* Normal players - Red */

@@ -17,7 +17,7 @@ const applyFiltersBtn = document.querySelector("#applyFiltersBtn");
 const clearFiltersBtn = document.querySelector("#clearFiltersBtn");
 
 // =============================
-// DEFAULT DATA (Your examples stay)
+// DATA (with LocalStorage support)
 // =============================
 
 let transfers = [
@@ -26,39 +26,26 @@ let transfers = [
     { name: "Jarrad Branthwaite", club: "Everton", position: "CB", age: 21, fee: "£60m", likelihood: 8, source: "BBC Sport" }
 ];
 
-// =============================
-// LOAD FROM LOCAL STORAGE (SAFE)
-// =============================
-
 const savedTransfers = localStorage.getItem("transfers");
 
 if (savedTransfers) {
     try {
         const parsed = JSON.parse(savedTransfers);
-
-        if (
-            Array.isArray(parsed) &&
-            parsed.length > 0 &&
-            parsed[0].name &&
-            parsed[0].club
-        ) {
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].name) {
             transfers = parsed;
         }
-    } catch (err) {
-        console.warn("Invalid localStorage data — using default examples.");
+    } catch (e) {
+        console.error("Invalid localStorage data");
     }
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem("transfers", JSON.stringify(transfers));
 }
 
 let activeSort = "none";
 let activePosition = "ALL";
-
-// =============================
-// SAVE FUNCTION
-// =============================
-
-function saveTransfers() {
-    localStorage.setItem("transfers", JSON.stringify(transfers));
-}
+let editingIndex = null;
 
 // =============================
 // SLIDER
@@ -73,6 +60,7 @@ likelihoodInput.addEventListener("input", () => {
 // =============================
 
 function renderTable() {
+
     tableBody.innerHTML = "";
 
     let view = [...transfers];
@@ -93,67 +81,138 @@ function renderTable() {
 
         const realIndex = transfers.indexOf(transfer);
 
-        const row = `
-            <tr>
-                <td>${transfer.name}</td>
-                <td>${transfer.club}</td>
-                <td><span class="badge bg-secondary">${transfer.position}</span></td>
-                <td>${transfer.age}</td>
-                <td>${transfer.fee}</td>
-                <td><span class="badge bg-danger">${transfer.likelihood}/10</span></td>
-                <td>${transfer.source}</td>
-                <td>
-                    <button class="btn btn-sm btn-danger delete-btn" data-index="${realIndex}">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        `;
+        if (editingIndex === realIndex) {
+            renderEditRow(transfer, realIndex);
+        } else {
+            renderNormalRow(transfer, realIndex);
+        }
 
-        tableBody.insertAdjacentHTML("beforeend", row);
     });
 
-    attachDeleteListeners();
     updateStats();
 }
 
 // =============================
-// DELETE
+// NORMAL ROW
 // =============================
 
-function attachDeleteListeners() {
-    document.querySelectorAll(".delete-btn").forEach(button => {
-        button.addEventListener("click", () => {
-            const index = parseInt(button.dataset.index);
-            transfers.splice(index, 1);
-            saveTransfers(); // Save after delete
-            renderTable();
-        });
-    });
+function renderNormalRow(transfer, index) {
+
+    const row = `
+        <tr>
+            <td>${transfer.name}</td>
+            <td>${transfer.club}</td>
+            <td><span class="badge bg-secondary">${transfer.position}</span></td>
+            <td>${transfer.age}</td>
+            <td>${transfer.fee}</td>
+            <td><span class="badge bg-danger">${transfer.likelihood}/10</span></td>
+            <td>${transfer.source}</td>
+            <td>
+                <button class="btn btn-sm btn-warning edit-btn" data-index="${index}">
+                    Edit
+                </button>
+                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    `;
+
+    tableBody.insertAdjacentHTML("beforeend", row);
 }
 
 // =============================
-// STATS
+// EDIT ROW
 // =============================
 
-function updateStats() {
-    totalRumors.textContent = transfers.length;
-    veryLikely.textContent = transfers.filter(t => t.likelihood >= 8).length;
+function renderEditRow(transfer, index) {
 
-    const avg = transfers.length > 0
-        ? (transfers.reduce((sum, t) => sum + t.likelihood, 0) / transfers.length).toFixed(1)
-        : 0;
+    const row = `
+        <tr>
+            <td><input type="text" class="form-control edit-name" value="${transfer.name}"></td>
+            <td><input type="text" class="form-control edit-club" value="${transfer.club}"></td>
+            <td>
+                <select class="form-select edit-position">
+                    <option ${transfer.position === "GK" ? "selected" : ""}>GK</option>
+                    <option ${transfer.position === "CB" ? "selected" : ""}>CB</option>
+                    <option ${transfer.position === "MID" ? "selected" : ""}>MID</option>
+                    <option ${transfer.position === "ST" ? "selected" : ""}>ST</option>
+                </select>
+            </td>
+            <td><input type="number" class="form-control edit-age" value="${transfer.age}"></td>
+            <td><input type="text" class="form-control edit-fee" value="${transfer.fee}"></td>
+            <td><input type="number" class="form-control edit-likelihood" min="1" max="10" value="${transfer.likelihood}"></td>
+            <td><input type="text" class="form-control edit-source" value="${transfer.source}"></td>
+            <td>
+                <button class="btn btn-sm btn-success save-btn" data-index="${index}">Save</button>
+                <button class="btn btn-sm btn-secondary cancel-btn">Cancel</button>
+            </td>
+        </tr>
+    `;
 
-    avgLikelihood.textContent = avg + "/10";
+    tableBody.insertAdjacentHTML("beforeend", row);
 }
 
 // =============================
-// VALIDATION + FORM SUBMIT
+// TABLE CLICK EVENTS (Edit/Delete/Save)
+// =============================
+
+tableBody.addEventListener("click", function (e) {
+
+    const index = parseInt(e.target.dataset.index);
+
+    if (e.target.classList.contains("delete-btn")) {
+        transfers.splice(index, 1);
+        saveToLocalStorage();
+        renderTable();
+    }
+
+    if (e.target.classList.contains("edit-btn")) {
+        editingIndex = index;
+        renderTable();
+    }
+
+    if (e.target.classList.contains("cancel-btn")) {
+        editingIndex = null;
+        renderTable();
+    }
+
+    if (e.target.classList.contains("save-btn")) {
+
+        const row = e.target.closest("tr");
+
+        const name = row.querySelector(".edit-name").value.trim();
+        const club = row.querySelector(".edit-club").value.trim();
+        const position = row.querySelector(".edit-position").value;
+        const age = parseInt(row.querySelector(".edit-age").value);
+        const fee = row.querySelector(".edit-fee").value.trim();
+        const likelihood = parseInt(row.querySelector(".edit-likelihood").value);
+        const source = row.querySelector(".edit-source").value.trim();
+
+        if (name.length < 3) return alert("Name must be at least 3 characters.");
+        if (club.length < 2) return alert("Club must be valid.");
+        if (isNaN(age) || age < 16 || age > 45) return alert("Age must be between 16 and 45.");
+        if (!/^£\d+/.test(fee)) return alert("Fee must start with £ and contain number.");
+        if (isNaN(likelihood) || likelihood < 1 || likelihood > 10) return alert("Likelihood 1-10 only.");
+        if (source.length < 3) return alert("Source too short.");
+
+        transfers[index] = { name, club, position, age, fee, likelihood, source };
+
+        editingIndex = null;
+        saveToLocalStorage();
+        renderTable();
+    }
+
+});
+
+// =============================
+// ADD NEW TRANSFER
 // =============================
 
 form.addEventListener("submit", function (e) {
 
     e.preventDefault();
+
     let isValid = true;
 
     const nameInput = document.querySelector("#playerName");
@@ -195,8 +254,7 @@ form.addEventListener("submit", function (e) {
         isValid = false;
     }
 
-    const feePattern = /^£\d+/;
-    if (!feePattern.test(fee)) {
+    if (!/^£\d+/.test(fee)) {
         feeInput.classList.add("is-invalid");
         isValid = false;
     }
@@ -210,17 +268,17 @@ form.addEventListener("submit", function (e) {
 
     transfers.push({ name, club, position, age, fee, likelihood, source });
 
-    saveTransfers(); // Save after add
+    saveToLocalStorage();
+    renderTable();
 
     form.reset();
-    likelihoodValue.textContent = "5";
     likelihoodInput.value = "5";
+    likelihoodValue.textContent = "5";
 
-    renderTable();
 });
 
 // =============================
-// APPLY / CLEAR
+// FILTERS
 // =============================
 
 applyFiltersBtn.addEventListener("click", () => {
@@ -238,7 +296,19 @@ clearFiltersBtn.addEventListener("click", () => {
 });
 
 // =============================
-// INIT
+// STATS
 // =============================
 
+function updateStats() {
+    totalRumors.textContent = transfers.length;
+    veryLikely.textContent = transfers.filter(t => t.likelihood >= 8).length;
+
+    const avg = transfers.length > 0
+        ? (transfers.reduce((sum, t) => sum + t.likelihood, 0) / transfers.length).toFixed(1)
+        : 0;
+
+    avgLikelihood.textContent = avg + "/10";
+}
+
+// =============================
 renderTable();

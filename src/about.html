@@ -11,21 +11,23 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- About Page Styles -->
-    <script src="js/darkmode.js"></script>z
+    <script src="js/darkmode.js" defer></script>
     <link rel="stylesheet" href="css/about.css">
+
+    <script src="js/footer.js" defer></script>
 </head>
 
 <body>
 
-<!-- ✅ Bootstrap Navbar -->
+<!-- Navbar - Modified both for  Computer  and Phone screen  -->
 <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
     <div class="container">
 
-        <!-- Brand -->
+        <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
             <img src="assets/logo1.png"
                  alt="Red Devils Hub Logo"
@@ -37,12 +39,12 @@
             </div>
         </a>
 
-        <!-- Mobile Toggle -->
+        <!-- Mobile toggle for burger navbar  -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Nav Links -->
+        <!--  Links -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
             <ul class="navbar-nav align-items-lg-center">
                 <li class="nav-item">
@@ -71,7 +73,7 @@
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO section image-->
 <section class="about-hero text-white text-center py-5">
     <div class="container">
         <h1 class="fw-bold">About Red Devils Hub</h1>
@@ -79,19 +81,19 @@
     </div>
 </section>
 
-<!-- ================= ABOUT SECTION ================= -->
+<!-- HERO about us text &  button-->
 <div class="container my-5">
 
     <div class="about-box text-center mx-auto">
         <h3 class="fw-bold mb-3">Our Mission</h3>
-        <p class= >
+        <p  class="lead">
             Red Devils Hub was created to provide Manchester United supporters with a comprehensive
             platform to analyze matches, track transfers, and engage with fellow fans.
             Our mission is to enhance your match-day experience through data-driven insights
             and interactive community features.
         </p>
 
-        <p class=>
+        <p class= "lead">
             Whether you're rating player performances, predicting upcoming fixtures,
             or tracking the latest transfer rumors, Red Devils Hub offers
             all the tools you need to stay connected with your favorite club.
@@ -130,14 +132,14 @@
 </div>
 
 
-<!-- ================= TEAM SECTION ================= -->
+<!-- Team Member Cards Section -->
 <section class="team-section py-5">
     <div class="container">
         <h3 class="text-center fw-bold mb-5">Meet Our Team</h3>
 
         <div class="row g-4">
 
-            <!-- Member 1 -->
+            <!-- Card 1 -->
             <div class="col-md-3">
                 <div class="team-card text-center">
                     <img src="assets/james1.jpg" class="team-img" alt="James Walker">
@@ -151,7 +153,7 @@
                 </div>
             </div>
 
-            <!-- Member 2 -->
+            <!-- Card 2 -->
             <div class="col-md-3">
                 <div class="team-card text-center">
                     <img src="assets/sofia1.jpg" class="team-img" alt="Sofia Martinez">
@@ -165,7 +167,7 @@
                 </div>
             </div>
 
-            <!-- Member 3 -->
+            <!-- Card  3 -->
             <div class="col-md-3">
                 <div class="team-card text-center">
                     <img src="assets/daniel1.jpg" class="team-img" alt="Daniel Hughes">
@@ -179,7 +181,7 @@
                 </div>
             </div>
 
-            <!-- Member 4 -->
+            <!-- Card  4 -->
             <div class="col-md-3">
                 <div class="team-card text-center">
                     <img src="assets/emily1.jpg" class="team-img" alt="Emily Carter">
@@ -198,7 +200,7 @@
 </section>
 
 
-<!-- ================= TESTIMONIAL CAROUSEL ================= -->
+<!-- Testimonial Carousel -->
 <div class="container my-5">
 
     <h4 class="text-center fw-bold mb-4">What Fans Are Saying</h4>
@@ -207,6 +209,7 @@
 
         <div class="carousel-inner">
 
+            <!-- Slide  1 -->
             <div class="carousel-item active text-center">
                 <img src="assets/fan1.png" class="carousel-img" alt="">
                 <p class="mt-4 fst-italic">
@@ -215,6 +218,7 @@
                 <span class="text-danger small">— Michael, Dublin</span>
             </div>
 
+            <!-- Slide  2 -->
             <div class="carousel-item text-center">
                 <img src="assets/fan2.png" class="carousel-img" alt="">
                 <p class="mt-4 fst-italic">
@@ -223,6 +227,7 @@
                 <span class="text-danger small">— Sarah, Manchester</span>
             </div>
 
+            <!-- Slide 3 -->
             <div class="carousel-item text-center">
                 <img src="assets/fan3.png" class="carousel-img" alt="">
                 <p class="mt-4 fst-italic">
@@ -233,6 +238,8 @@
 
         </div>
 
+
+        <!-- Carousel Arrows for  moving through the  slides -->
         <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
         </button>
@@ -246,7 +253,7 @@
 </div>
 
 
-<!-- ================= PLATFORM FEATURES SECTION ================= -->
+<!-- Platform features  -->
 <section class="features-section text-white text-center py-5">
     <div class="container">
         <h3 class="fw-bold mb-5">Platform Features</h3>
@@ -275,71 +282,7 @@
     </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer class="main-footer py-5">
-    <div class="container">
-        <div class="row">
-
-            <!-- LEFT COLUMN -->
-            <div class="col-md-4 mb-4 text-start">
-                <div class="d-flex align-items-center mb-3">
-                    <img src="assets/logo1.png"
-                         alt="Red Devils Hub Logo"
-                         class="footer-logo me-3">
-                    <h5 class="text-white fw-bold mb-0">Red Devils Hub</h5>
-                </div>
-
-                <p class="text-white mb-2">
-                    Your ultimate destination for Manchester United match ratings,
-                    transfer news, and predictions.
-                </p>
-            </div>
-
-            <!-- MIDDLE COLUMN (CENTERED) -->
-            <div class="col-md-4 mb-4 text-center">
-                <h5 class="text-white fw-bold mb-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="index.html" class="footer-link">Home</a></li>
-                    <li><a href="match.html" class="footer-link">Match Center</a></li>
-                    <li><a href="transfers.html" class="footer-link">Transfer Meter</a></li>
-                    <li><a href="about.html" class="footer-link">About Us</a></li>
-                    <li><a href="contact.html" class="footer-link">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- RIGHT COLUMN (RIGHT ALIGNED ON DESKTOP) -->
-            <div class="col-md-4 mb-4 text-md-end text-center">
-                <h5 class="text-white fw-bold mb-3">Connect With Us</h5>
-
-                <p class="text-white  mb-3">
-                    <i class="bi bi-envelope me-2"></i>
-                    info@reddevilshub.com
-                </p>
-
-                <div class="d-flex gap-3 mt-3 justify-content-md-end justify-content-center">
-                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <hr class="border-secondary mt-4">
-
-    <div class="text-center text-muted small">
-        © 2026 Red Devils Hub. All rights reserved.
-    </div>
-
-    </div>
-</footer>
-
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<div id="footer"></div>
 
 </body>
 </html>

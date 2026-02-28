@@ -96,16 +96,6 @@ body::before {
   z-index: -1;
 }
 
-/* =========================================================
-   HEADER LOGO
-========================================================= */
-.header-logo {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 /* Red hero like other pages */
 .contact-hero {
   background: linear-gradient(135deg, #c40000, #7a0000);

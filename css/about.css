@@ -11,7 +11,7 @@
 
 /* Logo */
 .header-logo {
-  width: 70px;
+  width: 70x;
   height: 70px;
   object-fit: contain;
   border-radius: 50%;
@@ -74,16 +74,6 @@
   width: 100%;
 }
 
-.player-img {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 15px auto;
-    border-radius: 12px;
-    border: 3px solid white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-}
 
 
 /* =========================================================
@@ -104,15 +94,6 @@ body::before {
   z-index: -1;
 }
 
-/* =========================================================
-   HEADER LOGO
-========================================================= */
-.header-logo {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-}
 
 /* =========================================================
    HERO SECTION (About Specific)
@@ -176,6 +157,7 @@ body::before {
 /* =========================================================
    TEAM SECTION
 ========================================================= */
+
 .team-section {
   background: transparent;
 }
@@ -184,8 +166,12 @@ body::before {
   background: white;
   padding: 25px;
   border-radius: 16px;
+  border: 1px solid transparent; /* prevents layout shift */
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;                /* equal height fix */
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card:hover {
@@ -201,10 +187,11 @@ body::before {
 }
 
 .team-description {
-    font-size: 14px;
-    color: #555;
-    margin-top: 8px;
-    line-height: 1.6;
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.6;
+  flex-grow: 1; /* keeps cards aligned */
 }
 
 /* =========================================================
@@ -390,12 +377,14 @@ body.dark-mode .mini-card i {
   color: #ffffff;
 }
 
-/* ================= TEAM CARDS ================= */
+/* =========================================================
+   DARK MODE TEAM CARDS
+========================================================= */
 
 body.dark-mode .team-card {
-  background: #7a0000; /* dark red */
+  background: #7a0000;
   color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06); /* same width as light mode */
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 

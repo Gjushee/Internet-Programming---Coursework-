@@ -9,7 +9,6 @@ function createRatingButtons() {
     return html;
 }
 
-// Insert rating buttons into every player card
 document.querySelectorAll(".rating-buttons").forEach(container => {
     container.innerHTML = createRatingButtons();
 });
@@ -18,24 +17,21 @@ document.querySelectorAll(".rating-buttons").forEach(container => {
 
 document.addEventListener("click", function (e) {
 
-    // ================= RATING CLICK =================
+    // RATING CLICK
     if (e.target.classList.contains("rating-btn")) {
 
         const group = e.target.closest(".rating-buttons");
 
-        // Remove selected from siblings
         group.querySelectorAll(".rating-btn").forEach(btn => {
             btn.classList.remove("rating-selected");
         });
 
-        // Add selected to clicked
         e.target.classList.add("rating-selected");
     }
 
-    // ================= MOTM (ONLY ONE) =================
+    // MOTM (ONLY ONE)
     if (e.target.closest(".motm-btn")) {
 
-        // Reset all MOTM buttons
         document.querySelectorAll(".motm-btn").forEach(btn => {
             btn.classList.remove("btn-warning");
             btn.classList.add("btn-light");
@@ -58,6 +54,8 @@ document.addEventListener("click", function (e) {
 
 // ================= RESET FUNCTION =================
 
+let chart;
+
 $("#reset-ratings").click(function () {
 
     $(".rating-btn").removeClass("rating-selected");
@@ -71,6 +69,8 @@ $("#reset-ratings").click(function () {
         .addClass("bi-star");
 
     $("#average-rating").text("0");
+    $("#motm-display").text("");
+    $("#no-data-message").show();
 
     if (chart) {
         chart.destroy();
@@ -79,25 +79,25 @@ $("#reset-ratings").click(function () {
 
 // ================= SUBMIT RATINGS =================
 
-let chart;
-
 $("#submit-ratings").click(function () {
 
     let ratings = [];
 
     $(".rating-buttons").each(function () {
-
         const selected = $(this).find(".rating-selected").text();
-
         if (selected) {
             ratings.push(parseInt(selected));
         }
     });
 
+    // If no ratings selected
     if (ratings.length === 0) {
-        alert("Please select at least one rating.");
+        $("#no-data-message").text("No ratings yet.").show();
+        if (chart) chart.destroy();
         return;
     }
+
+    $("#no-data-message").hide();
 
     // Distribution
     let distribution = new Array(10).fill(0);
@@ -111,6 +111,28 @@ $("#submit-ratings").click(function () {
     const average = (sum / ratings.length).toFixed(2);
 
     $("#average-rating").text(average);
+
+    // ================= FIND MOTM =================
+
+    let motmPlayer = "";
+
+    $(".motm-btn").each(function () {
+        if ($(this).hasClass("btn-warning")) {
+            motmPlayer = $(this)
+                .closest(".card")
+                .find("h5, h6")
+                .first()
+                .text();
+        }
+    });
+
+    if (motmPlayer) {
+        $("#motm-display").text("Your MOTM – " + motmPlayer);
+    } else {
+        $("#motm-display").text("No MOTM selected.");
+    }
+
+    // ================= CREATE CHART =================
 
     if (chart) {
         chart.destroy();

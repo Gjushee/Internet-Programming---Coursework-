@@ -1,4 +1,6 @@
-// Contact form validation + confirmation popup (Bootstrap modal)
+// ================= CONTACT FORM VALIDATION + WORD LIMIT =================
+
+const MAX_MESSAGE_WORDS = 200;
 
 const contactForm = document.querySelector("#contactForm");
 
@@ -7,17 +9,41 @@ const email = document.querySelector("#email");
 const subject = document.querySelector("#subject");
 const message = document.querySelector("#message");
 
+// Live word counter element
+const wordCountDisplay = document.querySelector("#wordCount");
+
 // Confirmation spans in modal
 const cName = document.querySelector("#cName");
 const cEmail = document.querySelector("#cEmail");
 const cSubject = document.querySelector("#cSubject");
 const cMessage = document.querySelector("#cMessage");
 
+// ================= LIVE WORD COUNTER =================
+
+message.addEventListener("input", () => {
+
+  const words = message.value.trim().split(/\s+/).filter(w => w.length > 0);
+  const wordCount = words.length;
+
+  wordCountDisplay.textContent = wordCount;
+
+  // Change color if limit exceeded
+  if (wordCount > MAX_MESSAGE_WORDS) {
+    wordCountDisplay.style.color = "red";
+  } else {
+    wordCountDisplay.style.color = "";
+  }
+});
+
+// ================= FORM SUBMIT =================
+
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // Reset validation UI
-  [fullName, email, subject, message].forEach((el) => el.classList.remove("is-invalid"));
+  [fullName, email, subject, message].forEach((el) =>
+    el.classList.remove("is-invalid")
+  );
 
   let valid = true;
 
@@ -27,9 +53,10 @@ contactForm.addEventListener("submit", (e) => {
     valid = false;
   }
 
-  // Email: basic pattern check
+  // Email validation
   const emailValue = email.value.trim();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   if (!emailPattern.test(emailValue)) {
     email.classList.add("is-invalid");
     valid = false;
@@ -41,25 +68,37 @@ contactForm.addEventListener("submit", (e) => {
     valid = false;
   }
 
-  // Message: min 10 chars
-  if (message.value.trim().length < 10) {
+  // Message validation
+  const messageText = message.value.trim();
+  const words = messageText.split(/\s+/).filter(w => w.length > 0);
+  const wordCount = words.length;
+
+  // Minimum characters
+  if (messageText.length < 10) {
+    message.classList.add("is-invalid");
+    valid = false;
+  }
+
+  // Maximum word limit
+  if (wordCount > MAX_MESSAGE_WORDS) {
     message.classList.add("is-invalid");
     valid = false;
   }
 
   if (!valid) return;
 
-  // Fill modal with captured details
+  // Fill modal
   cName.textContent = fullName.value.trim();
   cEmail.textContent = emailValue;
   cSubject.textContent = subject.value.trim();
-  cMessage.textContent = message.value.trim();
+  cMessage.textContent = messageText;
 
-  // Show Bootstrap modal popup
+  // Show modal
   const modalEl = document.querySelector("#confirmModal");
   const modal = new bootstrap.Modal(modalEl);
   modal.show();
 
-  // Reset form after successful submit
+  // Reset form
   contactForm.reset();
+  wordCountDisplay.textContent = "0";
 });
