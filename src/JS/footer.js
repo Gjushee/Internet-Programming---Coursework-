@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
 
     const footerHTML = `
     <footer class="main-footer py-5">

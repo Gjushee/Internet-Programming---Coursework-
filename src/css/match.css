@@ -92,7 +92,7 @@
 .match-hero {
     position: relative;
     min-height: 100vh;
-    background: url("/assets/old1.jpg") no-repeat center center;
+    background: url("../assets/old1.jpg") no-repeat center center;
     background-size: cover;
     padding-top: 40px;
     padding-bottom: 40px;

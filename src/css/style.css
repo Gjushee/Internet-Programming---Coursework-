@@ -97,7 +97,7 @@ body::before {
 ========================================================= */
 .hero-section {
   min-height: 100vh;
-  background: url('/assets/123.png') no-repeat center center;
+  background: url('../assets/123.png') no-repeat center center;
   background-size: cover;
   position: relative;
 }

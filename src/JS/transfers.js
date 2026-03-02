@@ -1,7 +1,7 @@
-// =============================
-// SELECTORS
-// =============================
 
+// SELECTING IMPORTANT ELEMENTS
+
+// We store references to HTML elements so we can use them later.
 const form = document.querySelector("#transferForm");
 const tableBody = document.querySelector("#transferTableBody");
 const likelihoodInput = document.querySelector("#likelihood");
@@ -16,59 +16,77 @@ const positionFilter = document.querySelector("#positionFilter");
 const applyFiltersBtn = document.querySelector("#applyFiltersBtn");
 const clearFiltersBtn = document.querySelector("#clearFiltersBtn");
 
+
 // =============================
-// DATA (with LocalStorage support)
+// DATA + LOCAL STORAGE
 // =============================
 
+// This array holds all transfer rumors.
+// The table is always built from this array.
 let transfers = [
     { name: "Victor Osimhen", club: "Napoli", position: "ST", age: 25, fee: "£100m", likelihood: 7, source: "Sky Sports" },
     { name: "Frenkie de Jong", club: "Barcelona", position: "MID", age: 26, fee: "£70m", likelihood: 5, source: "The Guardian" },
     { name: "Jarrad Branthwaite", club: "Everton", position: "CB", age: 21, fee: "£60m", likelihood: 8, source: "BBC Sport" }
 ];
 
+// Try to load saved data from browser storage
+// LocalStorage allows data to stay saved even after refresh.
 const savedTransfers = localStorage.getItem("transfers");
 
 if (savedTransfers) {
     try {
         const parsed = JSON.parse(savedTransfers);
+
+        // Check that saved data is valid
         if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].name) {
-            transfers = parsed;
+            transfers = parsed; // Replace default data
         }
+
     } catch (e) {
         console.error("Invalid localStorage data");
     }
 }
 
+// This function saves the transfers array into LocalStorage.
+// We convert it into a string using JSON.
 function saveToLocalStorage() {
     localStorage.setItem("transfers", JSON.stringify(transfers));
 }
 
+
+// STATE VARIABLES
+
+// These keep track of filters and edit mode.
 let activeSort = "none";
 let activePosition = "ALL";
-let editingIndex = null;
+let editingIndex = null; // Stores which row is being edited
 
-// =============================
-// SLIDER
-// =============================
 
+
+// LIKELIHOOD SLIDER
+// When the slider moves, update the number shown next to it.
 likelihoodInput.addEventListener("input", () => {
     likelihoodValue.textContent = likelihoodInput.value;
 });
 
-// =============================
-// RENDER TABLE
-// =============================
 
+// RENDER TABLE FUNCTION
+
+// This function rebuilds the table every time data changes.
 function renderTable() {
 
+    // Clear table first
     tableBody.innerHTML = "";
 
+    // Make a copy of transfers array
     let view = [...transfers];
 
+    // Apply position filter
     if (activePosition !== "ALL") {
         view = view.filter(t => t.position === activePosition);
     }
 
+    // Apply sorting
     if (activeSort === "high-low") {
         view.sort((a, b) => b.likelihood - a.likelihood);
     } else if (activeSort === "low-high") {
@@ -77,10 +95,12 @@ function renderTable() {
         view.sort((a, b) => a.position.localeCompare(b.position));
     }
 
+    // Loop through each transfer and create table rows
     view.forEach((transfer) => {
 
         const realIndex = transfers.indexOf(transfer);
 
+        // If this row is being edited, show input fields
         if (editingIndex === realIndex) {
             renderEditRow(transfer, realIndex);
         } else {
@@ -89,13 +109,13 @@ function renderTable() {
 
     });
 
-    updateStats();
+    updateStats(); // Update summary cards
 }
 
-// =============================
 // NORMAL ROW
-// =============================
 
+
+// Creates a normal table row with Edit and Delete buttons.
 function renderNormalRow(transfer, index) {
 
     const row = `
@@ -108,12 +128,8 @@ function renderNormalRow(transfer, index) {
             <td><span class="badge bg-danger">${transfer.likelihood}/10</span></td>
             <td>${transfer.source}</td>
             <td>
-                <button class="btn btn-sm btn-warning edit-btn" data-index="${index}">
-                    Edit
-                </button>
-                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">
-                    Delete
-                </button>
+                <button class="btn btn-sm btn-warning edit-btn" data-index="${index}">Edit</button>
+                <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
             </td>
         </tr>
     `;
@@ -121,10 +137,11 @@ function renderNormalRow(transfer, index) {
     tableBody.insertAdjacentHTML("beforeend", row);
 }
 
-// =============================
-// EDIT ROW
-// =============================
 
+// EDIT ROW
+
+
+// Replaces the row with input fields so user can edit data.
 function renderEditRow(transfer, index) {
 
     const row = `
@@ -141,7 +158,7 @@ function renderEditRow(transfer, index) {
             </td>
             <td><input type="number" class="form-control edit-age" value="${transfer.age}"></td>
             <td><input type="text" class="form-control edit-fee" value="${transfer.fee}"></td>
-            <td><input type="number" class="form-control edit-likelihood" min="1" max="10" value="${transfer.likelihood}"></td>
+            <td><input type="number" class="form-control edit-likelihood" value="${transfer.likelihood}"></td>
             <td><input type="text" class="form-control edit-source" value="${transfer.source}"></td>
             <td>
                 <button class="btn btn-sm btn-success save-btn" data-index="${index}">Save</button>
@@ -153,30 +170,35 @@ function renderEditRow(transfer, index) {
     tableBody.insertAdjacentHTML("beforeend", row);
 }
 
-// =============================
-// TABLE CLICK EVENTS (Edit/Delete/Save)
-// =============================
 
+// TABLE BUTTON EVENTS
+
+
+// We use one click listener for the whole table.
 tableBody.addEventListener("click", function (e) {
 
     const index = parseInt(e.target.dataset.index);
 
+    // DELETE
     if (e.target.classList.contains("delete-btn")) {
-        transfers.splice(index, 1);
+        transfers.splice(index, 1); // Remove from array
         saveToLocalStorage();
         renderTable();
     }
 
+    // EDIT
     if (e.target.classList.contains("edit-btn")) {
         editingIndex = index;
         renderTable();
     }
 
+    // CANCEL
     if (e.target.classList.contains("cancel-btn")) {
         editingIndex = null;
         renderTable();
     }
 
+    // SAVE
     if (e.target.classList.contains("save-btn")) {
 
         const row = e.target.closest("tr");
@@ -189,13 +211,7 @@ tableBody.addEventListener("click", function (e) {
         const likelihood = parseInt(row.querySelector(".edit-likelihood").value);
         const source = row.querySelector(".edit-source").value.trim();
 
-        if (name.length < 3) return alert("Name must be at least 3 characters.");
-        if (club.length < 2) return alert("Club must be valid.");
-        if (isNaN(age) || age < 16 || age > 45) return alert("Age must be between 16 and 45.");
-        if (!/^£\d+/.test(fee)) return alert("Fee must start with £ and contain number.");
-        if (isNaN(likelihood) || likelihood < 1 || likelihood > 10) return alert("Likelihood 1-10 only.");
-        if (source.length < 3) return alert("Source too short.");
-
+        // Replace old object with new values
         transfers[index] = { name, club, position, age, fee, likelihood, source };
 
         editingIndex = null;
@@ -205,81 +221,36 @@ tableBody.addEventListener("click", function (e) {
 
 });
 
-// =============================
-// ADD NEW TRANSFER
-// =============================
 
+// ADD NEW TRANSFER
+
+
+// When form is submitted
 form.addEventListener("submit", function (e) {
 
-    e.preventDefault();
+    e.preventDefault(); // Prevent page reload
 
-    let isValid = true;
-
-    const nameInput = document.querySelector("#playerName");
-    const clubInput = document.querySelector("#currentClub");
-    const positionInput = document.querySelector("#position");
-    const ageInput = document.querySelector("#age");
-    const feeInput = document.querySelector("#fee");
-    const sourceInput = document.querySelector("#source");
-
-    const name = nameInput.value.trim();
-    const club = clubInput.value.trim();
-    const position = positionInput.value;
-    const age = parseInt(ageInput.value);
-    const fee = feeInput.value.trim();
-    const source = sourceInput.value.trim();
+    const name = document.querySelector("#playerName").value.trim();
+    const club = document.querySelector("#currentClub").value.trim();
+    const position = document.querySelector("#position").value;
+    const age = parseInt(document.querySelector("#age").value);
+    const fee = document.querySelector("#fee").value.trim();
+    const source = document.querySelector("#source").value.trim();
     const likelihood = parseInt(likelihoodInput.value);
 
-    form.querySelectorAll(".form-control, .form-select").forEach(input => {
-        input.classList.remove("is-invalid");
-    });
-
-    if (name.length < 3) {
-        nameInput.classList.add("is-invalid");
-        isValid = false;
-    }
-
-    if (club.length < 2) {
-        clubInput.classList.add("is-invalid");
-        isValid = false;
-    }
-
-    if (!position) {
-        positionInput.classList.add("is-invalid");
-        isValid = false;
-    }
-
-    if (isNaN(age) || age < 16 || age > 45) {
-        ageInput.classList.add("is-invalid");
-        isValid = false;
-    }
-
-    if (!/^£\d+/.test(fee)) {
-        feeInput.classList.add("is-invalid");
-        isValid = false;
-    }
-
-    if (source.length < 3) {
-        sourceInput.classList.add("is-invalid");
-        isValid = false;
-    }
-
-    if (!isValid) return;
-
+    // Add new object to array
     transfers.push({ name, club, position, age, fee, likelihood, source });
 
     saveToLocalStorage();
     renderTable();
 
     form.reset();
-    likelihoodInput.value = "5";
     likelihoodValue.textContent = "5";
-
 });
 
-// =============================
-// FILTERS
-// =============================
+
+
+// FILTER BUTTONS
 
 applyFiltersBtn.addEventListener("click", () => {
     activeSort = sortSelect.value;
@@ -295,13 +266,16 @@ clearFiltersBtn.addEventListener("click", () => {
     renderTable();
 });
 
-// =============================
-// STATS
-// =============================
 
+// UPDATE STATISTICS
+
+// Updates summary cards below the table.
 function updateStats() {
+
     totalRumors.textContent = transfers.length;
-    veryLikely.textContent = transfers.filter(t => t.likelihood >= 8).length;
+
+    veryLikely.textContent =
+        transfers.filter(t => t.likelihood >= 8).length;
 
     const avg = transfers.length > 0
         ? (transfers.reduce((sum, t) => sum + t.likelihood, 0) / transfers.length).toFixed(1)
@@ -310,5 +284,8 @@ function updateStats() {
     avgLikelihood.textContent = avg + "/10";
 }
 
-// =============================
-renderTable();
+
+
+// INITIAL RENDER
+
+renderTable(); // Build table when page loads
