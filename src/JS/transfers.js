@@ -223,8 +223,6 @@ tableBody.addEventListener("click", function (e) {
 
 
 // ADD NEW TRANSFER
-
-
 // When form is submitted
 form.addEventListener("submit", function (e) {
 

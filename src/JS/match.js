@@ -1,4 +1,4 @@
-// ================= CREATE RATING BUTTONS =================
+// CREATE RATING BUTTONS
 
 // This function creates rating buttons from 1 to 10.
 // Instead of writing 10 buttons in HTML for every player,
@@ -24,14 +24,13 @@ document.querySelectorAll(".rating-buttons").forEach(container => {
 });
 
 
-// ================= CLICK HANDLER =================
+// CLICK HANDLER
 
 // We listen for all click events on the page.
-// This is called "event delegation".
 // It allows us to handle clicks for many buttons in one place.
 document.addEventListener("click", function (e) {
 
-    // ================= RATING BUTTON CLICK =================
+    //RATING BUTTON CLICK
 
     // Check if the clicked element has class "rating-btn"
     if (e.target.classList.contains("rating-btn")) {
@@ -49,7 +48,7 @@ document.addEventListener("click", function (e) {
     }
 
 
-    // ================= MOTM BUTTON CLICK =================
+    // MOTM BUTTON CLICK
 
     // Check if the clicked element is inside a MOTM button
     if (e.target.closest(".motm-btn")) {
@@ -80,7 +79,7 @@ document.addEventListener("click", function (e) {
 });
 
 
-// ================= RESET FUNCTION =================
+// RESET FUNCTION
 
 // We store the chart in a variable so we can remove it later
 let chart;
@@ -117,7 +116,7 @@ $("#reset-ratings").click(function () {
 });
 
 
-// ================= SUBMIT RATINGS =================
+// SUBMIT RATINGS
 
 // When submit button is clicked
 $("#submit-ratings").click(function () {
@@ -152,8 +151,7 @@ $("#submit-ratings").click(function () {
     $("#no-data-message").hide();
 
 
-    // ================= CALCULATE DISTRIBUTION =================
-
+    //  CALCULATE DISTRIBUTION
     // Create array with 10 positions (for ratings 1–10)
     let distribution = new Array(10).fill(0);
 
@@ -163,7 +161,7 @@ $("#submit-ratings").click(function () {
     });
 
 
-    // ================= CALCULATE AVERAGE =================
+    //  CALCULATE AVERAGE
 
     const sum = ratings.reduce((a, b) => a + b, 0);
 
@@ -173,7 +171,7 @@ $("#submit-ratings").click(function () {
     $("#average-rating").text(average);
 
 
-    // ================= FIND MOTM =================
+    //  FIND MOTM
 
     let motmPlayer = "";
 
@@ -200,7 +198,7 @@ $("#submit-ratings").click(function () {
     }
 
 
-    // ================= CREATE BAR CHART =================
+    //  CREATE BAR CHART
 
     // Destroy old chart before creating a new one
     if (chart) {

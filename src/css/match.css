@@ -1,4 +1,4 @@
-/* ================= NAVBAR UPGRADE ================= */
+/* NAVBAR  */
 
 .custom-navbar {
   background: rgba(255, 255, 255, 0.95);
@@ -22,7 +22,7 @@
   transform: rotate(-5deg) scale(1.05);
 }
 
-/* Brand Text */
+/* Logo Text */
 .brand-title {
   font-weight: 700;
   font-size: 18px;
@@ -87,7 +87,7 @@
 
 
 
-/* ================= MATCH HERO BACKGROUND ================= */
+/* MATCH HERO BACKGROUND */
 
 .match-hero {
     position: relative;
@@ -128,7 +128,7 @@
 }
 
 
-/* ================= PLAYER CARDS ================= */
+/*  PLAYER CARDS */
 
 /* Normal players - Red */
 .player-card {
@@ -182,7 +182,7 @@
 
 
 
-/* ================= SUBMIT BUTTON ================= */
+/* SUBMIT BUTTON */
 
 .submit-ratings-btn {
     background: linear-gradient(135deg, #dc3545, #8b0000);
@@ -200,7 +200,7 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* ================= RESET BUTTON ================= */
+/* RESET BUTTON  */
 
 .reset-ratings-btn {
     background-color: #222;
@@ -217,27 +217,9 @@
 }
 
 
-/* ================= MATCH THOUGHTS BUTTON ================= */
-
-.custom-submit-btn {
-    background-color: white;
-    color: #4b0082;
-    border: none;
-    padding: 6px 20px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.custom-submit-btn:hover {
-    background-color: #e6e6e6;
-    transform: translateY(-2px);
-}
 
 
-
-/* ================= FOOTER ================= */
+/*  FOOTER  */
 
 .main-footer {
   background-color: #111827;
@@ -279,9 +261,7 @@
   transform: translateY(-3px);
 }
 
-/* =========================================================
-   DARK MODE SYSTEM
-========================================================= */
+/*  DARK MODE SYSTEM */
 
 .dark-toggle-btn {
   border-radius: 50px;
@@ -365,7 +345,7 @@ body.dark-mode .main-footer {
   background-color: #0f172a;
 }
 
-//* ================= RATING BUTTON STYLING ================= */
+//*  RATING BUTTON STYLING  */
 
  .rating-btn {
    border: 1px solid #dc3545;

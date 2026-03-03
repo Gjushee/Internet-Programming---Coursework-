@@ -1,4 +1,4 @@
-/* ================= NAVBAR UPGRADE ================= */
+/* NAVBAR */
 
 .custom-navbar {
   background: rgba(255, 255, 255, 0.95);
@@ -22,7 +22,7 @@
   transform: rotate(-5deg) scale(1.05);
 }
 
-/* Brand Text */
+/* Logo Text */
 .brand-title {
   font-weight: 700;
   font-size: 18px;
@@ -75,10 +75,7 @@
 }
 
 
-/* =========================================================
-   CONTACT PAGE (Page-specific styles)
-   Matches concept of Index + Transfers styling
-========================================================= */
+/* CONTACT PAGE BACKGROUND- Matches concept of Index + Transfers styling*/
 
 /* Soft background so it’s not bland */
 body {
@@ -142,7 +139,7 @@ body::before {
   flex: 0 0 46px;
 }
 
-/* Social buttons (premium + consistent) */
+/* Social buttons */
 .social-btn {
   width: 46px;
   height: 46px;
@@ -209,9 +206,7 @@ textarea.form-control:focus {
   }
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/*  FOOTER */
 .main-footer {
   background-color: #111827;
 }
@@ -252,9 +247,7 @@ textarea.form-control:focus {
   transform: translateY(-3px);
 }
 
-/* =========================================================
-   DARK MODE SYSTEM
-========================================================= */
+/* DARK MODE SYSTEM */
 
 .dark-toggle-btn {
   border-radius: 50px;

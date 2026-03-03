@@ -1,4 +1,5 @@
 // Wait until the HTML page is fully loaded before running the code
+
 document.addEventListener("DOMContentLoaded", function () {
 
   // Select the table body where rows will be added
@@ -88,8 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// This function safely converts a value into a number
-// If the value is not valid, it returns 0 instead
+// This function converts a data into a number
+// If the data is not valid, it returns 0 instead
 function toNum(v) {
   const n = Number(v);
   return Number.isFinite(n) ? n : 0;
@@ -105,7 +106,7 @@ function generateLast5Form({ played, wins, draws, losses }) {
     return `<span class="text-muted">N/A</span>`;
   }
 
-  // Calculate approximate wins and draws out of 5 matches
+  // Calculate approx wins and draws out of 5 matches
   let wCount = Math.round((wins / played) * 5);
   let dCount = Math.round((draws / played) * 5);
 

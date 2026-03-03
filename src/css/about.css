@@ -1,4 +1,4 @@
-/* ================= NAVBAR UPGRADE ================= */
+/* NAVBAR  */
 
 .custom-navbar {
   background: rgba(255, 255, 255, 0.95);
@@ -22,7 +22,7 @@
   transform: rotate(-5deg) scale(1.05);
 }
 
-/* Brand Text */
+/* Logo Text */
 .brand-title {
   font-weight: 700;
   font-size: 18px;
@@ -76,9 +76,7 @@
 
 
 
-/* =========================================================
-   GLOBAL BACKGROUND (Consistent With Site)
-========================================================= */
+/* GLOBAL BACKGROUND (Consistent With Site) */
 body {
   background: radial-gradient(circle at top, #ffffff 0%, #f3f4f6 45%, #eceff3 100%);
 }
@@ -95,9 +93,7 @@ body::before {
 }
 
 
-/* =========================================================
-   HERO SECTION (About Specific)
-========================================================= */
+/* HERO SECTION (About Specific) */
 .about-hero {
   background: linear-gradient(135deg, #c40000, #7a0000);
   box-shadow: 0 18px 45px rgba(0,0,0,0.2);
@@ -105,9 +101,7 @@ body::before {
   border-bottom-right-radius: 30px;
 }
 
-/* =========================================================
-   SECTION BOX (Premium Consistency)
-========================================================= */
+/* SECTION BOX */
 .section-box,
 .about-box {
   background: rgba(255, 255, 255, 0.92);
@@ -138,9 +132,7 @@ body::before {
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
 }
 
-/* =========================================================
-   MINI FEATURE CARDS
-========================================================= */
+/* MINI FEATURE CARDS */
 .mini-card {
   background: white;
   border-radius: 14px;
@@ -154,9 +146,7 @@ body::before {
   box-shadow: 0 16px 35px rgba(0,0,0,0.12);
 }
 
-/* =========================================================
-   TEAM SECTION
-========================================================= */
+/* TEAM MEMBERS */
 
 .team-section {
   background: transparent;
@@ -194,9 +184,7 @@ body::before {
   flex-grow: 1; /* keeps cards aligned */
 }
 
-/* =========================================================
-   CAROUSEL SECTION
-========================================================= */
+/* CAROUSEL SECTION */
 .about-carousel {
   background: rgba(255,255,255,0.95);
   border-radius: 16px;
@@ -220,9 +208,7 @@ body::before {
   right: -60px;
 }
 
-/* =========================================================
-   FEATURES RED SECTION
-========================================================= */
+/* FEATURES RED SECTION */
 .features-section {
   background: linear-gradient(135deg, #c40000, #7a0000);
   border-radius: 30px;
@@ -230,9 +216,7 @@ body::before {
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
-/* =========================================================
-   BUTTON ENHANCEMENT
-========================================================= */
+/* BUTTON ENHANCEMENT */
 .btn-danger {
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(220, 53, 69, 0.25);
@@ -244,9 +228,7 @@ body::before {
   box-shadow: 0 14px 28px rgba(220, 53, 69, 0.35);
 }
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+/*  NAVBAR */
 .navbar .nav-link:hover {
   text-decoration: underline;
 }
@@ -255,16 +237,14 @@ body::before {
   font-weight: bold;
 }
 
-/* =========================================================
-   SECTION SPACING
-========================================================= */
+/* SECTION SPACING */
 section {
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
 
-/* ================= FOOTER ================= */
+/*  FOOTER  */
 
 .main-footer {
   background-color: #111827;
@@ -306,9 +286,7 @@ section {
   transform: translateY(-3px);
 }
 
-/* =========================================================
-   DARK MODE SYSTEM
-========================================================= */
+/*  DARK MODE SYSTEM */
 
 .dark-toggle-btn {
   border-radius: 50px;
@@ -323,7 +301,7 @@ body.dark-mode {
   color: #f1f5f9;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR  */
 
 body.dark-mode .custom-navbar {
   background: #111827;
@@ -346,7 +324,7 @@ body.dark-mode .brand-subtitle {
   color: #cbd5e1;
 }
 
-/* ================= ABOUT MAIN BOX ================= */
+/* ABOUT MAIN SECTION */
 
 body.dark-mode .about-box {
   background: #1e293b;
@@ -359,7 +337,7 @@ body.dark-mode .about-box p {
   color: #f1f5f9;
 }
 
-/* ================= MINI FEATURE CARDS ================= */
+/* MINI FEATURE CARDS */
 
 body.dark-mode .mini-card {
   background: #7a0000; /* dark red */
@@ -377,9 +355,7 @@ body.dark-mode .mini-card i {
   color: #ffffff;
 }
 
-/* =========================================================
-   DARK MODE TEAM CARDS
-========================================================= */
+/* DARK MODE TEAM CARDS */
 
 body.dark-mode .team-card {
   background: #7a0000;
@@ -393,7 +369,7 @@ body.dark-mode .team-card .team-description {
   color: #ffffff;
 }
 
-/* ================= TESTIMONIAL CAROUSEL ================= */
+/* TESTIMONIAL CAROUSEL  */
 
 body.dark-mode .about-carousel {
   background: #000000; /* black */
@@ -406,7 +382,7 @@ body.dark-mode .about-carousel .carousel-item p {
   color: #ffffff;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 body.dark-mode .main-footer {
   background-color: #0f172a;

@@ -1,4 +1,4 @@
-// ================= CONTACT FORM VALIDATION + WORD LIMIT =================
+//  CONTACT FORM VALIDATION + WORD LIMIT
 
 const MAX_MESSAGE_WORDS = 200;
 
@@ -9,7 +9,7 @@ const email = document.querySelector("#email");
 const subject = document.querySelector("#subject");
 const message = document.querySelector("#message");
 
-// Live word counter element
+
 const wordCountDisplay = document.querySelector("#wordCount");
 
 // Confirmation spans in modal
@@ -18,7 +18,7 @@ const cEmail = document.querySelector("#cEmail");
 const cSubject = document.querySelector("#cSubject");
 const cMessage = document.querySelector("#cMessage");
 
-// ================= LIVE WORD COUNTER =================
+//  LIVE WORD COUNTER
 
 message.addEventListener("input", () => {
 
@@ -27,7 +27,7 @@ message.addEventListener("input", () => {
 
   wordCountDisplay.textContent = wordCount;
 
-  // Change color if limit exceeded
+  // Change color if limit goes over
   if (wordCount > MAX_MESSAGE_WORDS) {
     wordCountDisplay.style.color = "red";
   } else {
@@ -35,7 +35,7 @@ message.addEventListener("input", () => {
   }
 });
 
-// ================= FORM SUBMIT =================
+//  FORM SUBMIT
 
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -62,7 +62,7 @@ contactForm.addEventListener("submit", (e) => {
     valid = false;
   }
 
-  // Subject: min 3 chars
+  // Subject-min 3 chars
   if (subject.value.trim().length < 3) {
     subject.classList.add("is-invalid");
     valid = false;

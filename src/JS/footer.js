@@ -1,3 +1,5 @@
+ //a static  footer that is loaded  once <div id="footer"></div> is included
+
  document.addEventListener("DOMContentLoaded", function () {
 
     const footerHTML = `

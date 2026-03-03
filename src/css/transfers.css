@@ -1,4 +1,4 @@
-/* ================= NAVBAR UPGRADE ================= */
+/* NAVBAR  */
 
 .custom-navbar {
   background: rgba(255, 255, 255, 0.95);
@@ -22,7 +22,7 @@
   transform: rotate(-5deg) scale(1.05);
 }
 
-/* Brand Text */
+/* Logo Text */
 .brand-title {
   font-weight: 700;
   font-size: 18px;
@@ -73,9 +73,7 @@
 }
 
 
-/* =========================================================
-   GLOBAL BACKGROUND
-========================================================= */
+/*  GLOBAL BACKGROUND */
 
 body {
   background: radial-gradient(circle at top, #ffffff 0%, #f3f4f6 45%, #eceff3 100%);
@@ -94,9 +92,7 @@ body::before {
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO IMAGE */
 
 .transfer-hero {
   background: linear-gradient(135deg, #c40000, #7a0000);
@@ -104,9 +100,7 @@ body::before {
 }
 
 
-/* =========================================================
-   SECTION BOX
-========================================================= */
+/* SECTION BOX */
 
 .section-box {
   background: rgba(255,255,255,0.92);
@@ -122,9 +116,7 @@ body::before {
 }
 
 
-/* =========================================================
-   FORMS
-========================================================= */
+/* FORMS */
 
 .form-control,
 .form-select {
@@ -145,9 +137,7 @@ body::before {
 }
 
 
-/* =========================================================
-   TABLE
-========================================================= */
+/* TABLE */
 
 .card {
   border-radius: 16px;
@@ -164,9 +154,7 @@ body::before {
 }
 
 
-/* =========================================================
-   FAVOURITE TRANSFERS
-========================================================= */
+/* FAVOURITE TRANSFERS */
 
 .favourite-wrap {
   background: linear-gradient(135deg, #a00000, #6f0000);
@@ -215,9 +203,7 @@ body::before {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .main-footer {
   background-color: #111827;
@@ -260,9 +246,7 @@ body::before {
 }
 
 
-/* =========================================================
-   DARK MODE SYSTEM
-========================================================= */
+/*DARK MODE SYSTEM */
 
 .dark-toggle-btn {
   border-radius: 50px;
@@ -312,7 +296,7 @@ body.dark-mode .card {
   border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* ================= DARK MODE TABLE ================= */
+/* DARK MODE TABLE */
 
 body.dark-mode .table {
   --bs-table-bg: #1e293b;
@@ -335,7 +319,7 @@ body.dark-mode .table td {
   border-color: rgba(255,255,255,0.08);
 }
 
-/* ================= DARK MODE CAROUSEL ================= */
+/* DARK MODE CAROUSEL */
 
 body.dark-mode .favourite-inner {
   background: #1e293b;
